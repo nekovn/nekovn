@@ -1,0 +1,41 @@
+{
+  "name": "NekoVn",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@fortawesome/free-solid-svg-icons": "^5.15.1",
+    "@fortawesome/vue-fontawesome": "^2.0.0",
+    "@nuxtjs/axios": "^5.12.4",
+    "@nuxtjs/dotenv": "^1.4.1",
+    "@nuxtjs/google-gtag": "^1.0.4",
+    "@nuxtjs/style-resources": "^1.0.0",
+    "animate.css": "^4.1.1",
+    "ant-design-vue": "^1.7.2",
+    "buefy": "^0.9.4",
+    "cookie": "^0.4.1",
+    "core-js": "^3.6.5",
+    "dart-sass": "^1.25.0",
+    "dayjs": "^1.9.7",
+    "intersection-observer": "^0.12.0",
+    "limax": "^2.1.0",
+    "lodash.chunk": "^4.2.0",
+    "lodash.range": "^3.2.0",
+    "nuxt": "^2.14.6",
+    "nuxt-buefy": "^0.4.4",
+    "nuxt-fontawesome": "^0.4.0",
+    "opti-image": "^0.10.0",
+    "tinymce-i18n": "^20.4.4",
+    "vue-social-sharing": "^3.0.4",
+    "vue-tinymce-editor": "^1.6.2"
+  },
+  "devDependencies": {
+    "sass": "^1.30.0",
+    "sass-loader": "^10.1.0"
+  }
+}

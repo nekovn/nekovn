@@ -1,0 +1,305 @@
+.message-name {
+  margin: 6px;
+}
+.message-name {
+  font-weight: 700;
+  font-size: inherit;
+  text-align: center;
+  margin: 0;
+}
+.message-name .username>span {
+  position: relative;
+}
+.message-name .username>span {
+  font-size: 14px;
+}
+.username--style3 {
+  color: red;
+}
+.message-userTitle {
+  font-size: 14px;
+  font-weight: normal;
+  text-align: center;
+  margin: 0;
+}
+.message-userBanner.userBanner {
+  display: block;
+  margin-top: 3px;
+}
+.userBanner.userBanner--staff, .userBanner.userBanner--primary {
+  color: #2577b1;
+  background: #edf6fd;
+  border-color: #bfdff8;
+  border-color: #bcdef5;
+}
+.userBanner {
+  border-radius: 10px !important;
+}
+.userBanner {
+  font-size: 75%;
+  font-weight: 400;
+  font-style: normal;
+  padding: 1px 6px;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  text-align: center;
+  display: inline-block;
+}
+.userBannerModeratorIdol {
+  background: linear-gradient(-45deg, #f44336, #e91e63, #9c27b0, #673ab7, #2196f3, #00bcd4, #009688, #4caf50, #cddc39, #ffeb3b, #ffc107, #ff9800);
+  background-size: 400% 400%;
+  -webkit-animation: gradient 15s ease infinite;
+  -o-animation: gradient 15s ease infinite;
+  animation: gradient 15s ease infinite;
+}
+.userBannerModeratorIdol strong {
+  color: #FFF !important;
+}
+.userBannerModerator strong {
+  color: #FFF !important;
+}
+.userBanner--skyBlue strong {
+  color: #FFF !important;
+}
+.userBannerSuperModerator strong {
+  color: #FFF !important;
+}
+.userBannerService strong {
+  color: #FFF !important;
+}
+.blue strong {
+  color: #FFF !important;
+}
+.userBanner strong {
+  font-weight: inherit;
+  font-size: 13px;
+
+}
+.userBannerService {
+  background-color: #673AB7;
+  color: #FFF;
+}
+.userBannerSuperModerator {
+  background: linear-gradient(45.4deg, #2e7d32 6.41%, #fbf2b1 98.98999999999999%);
+  color: #FFF;
+  border: none;
+}
+.userBanner.userBanner--skyBlue {
+  color: #fff;
+  background: #7cc3e0;
+  border-color: #53b0d6;
+}
+.username--style23 {
+  background-image: url(/hero.png);
+  color: #4DB6AC;
+  background-repeat: no-repeat;
+}
+.message-userExtras {
+  margin-top: 5px;
+  font-size: 12px;
+}
+.pairs {
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+.pairs.pairs--justified>dt {
+  float: left;
+  max-width: 100%;
+  margin-right: 6px;
+}
+.pairs>dt {
+  padding: 0;
+  margin: 0;
+  color: #8c8c8c;
+}
+.pairs.pairs--justified>dd {
+  float: right;
+  text-align: right;
+  max-width: 100%;
+}
+.pairs.pairs--justified:after {
+  clear: both;
+}
+.pairs.pairs--justified:before, .pairs.pairs--justified:after {
+  content: " ";
+  display: table;
+}
+.username--style4 {
+  background-image: url(/moderator.png);
+  color: #0D47A1;
+  background-repeat: no-repeat;
+}
+.pairs {
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+.credit-bar {
+  margin-top: 10px;
+  line-height: 22px;
+  font-size: 14px;
+  text-align: right;
+}
+.username--style4 {
+  padding-left: 20px;
+  background-size: 15px;
+}
+.username--style23{
+  padding-left: 20px;
+  background-size: 15px;
+}
+.username--style24{
+  padding-left: 20px;
+  background-size: 15px;
+}
+.username--style5{
+  padding-left: 20px;
+  background-size: 15px;
+}
+.username--style22{
+  padding-left: 20px;
+  background-size: 15px;
+}
+.credit-bar img {
+  float: left;
+  width: 20px;
+}
+.credit-bar .credit-progress {
+  height: 5px;
+  overflow: hidden;
+  background-color: #e0e0e0;
+  border-radius: 3px;
+  -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+  margin-top: 2px;
+}
+.credit-bar .credit-progress .credit-progress-bar.red {
+  background-color: #d9534f;
+}
+.blue {
+  border-color: #459fd6 #3094d2 #277db2;
+  background-color: #5aaadb;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #aed5ed), color-stop(70%, #7bbbe2), color-stop(100%, #5aaadb));
+  background-image: -webkit-linear-gradient(top, #aed5ed 0%, #7bbbe2 70%, #5aaadb 100%);
+  background-image: -moz-linear-gradient(top, #aed5ed 0%, #7bbbe2 70%, #5aaadb 100%);
+  background-image: -ms-linear-gradient(top, #aed5ed 0%, #7bbbe2 70%, #5aaadb 100%);
+  background-image: -o-linear-gradient(top, #aed5ed 0%, #7bbbe2 70%, #5aaadb 100%);
+  background-image: linear-gradient(top, #aed5ed 0%, #7bbbe2 70%, #5aaadb 100%);
+}
+.userBannerHero {
+  border-color: #459fd6 #bad230 #b22794;
+  background-color: #b4db5a;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #edaed6), color-stop(70%, #e27bd1), color-stop(100%, #db5a92));
+  background-image: -webkit-linear-gradient(top, #d0edae 0%, #e2d47b 70%, #dba75a 100%);
+  background-image: -moz-linear-gradient(top, #edd1ae 0%, #e27be0 70%, #d7db5a 100%);
+  background-image: -ms-linear-gradient(top, #ede3ae 0%, #cce27b 70%, #ce5adb 100%);
+  background-image: -o-linear-gradient(top, #ebedae 0%, #cc7be2 70%, #db5a9d 100%);
+  background-image: linear-gradient(top, #ceedae 0%, #7bbbe2 70%, #67db5a 100%);
+}
+.userBannerSupperHero {
+  border-color: #459fd6 #d230a4 #b28b27;
+  background-color: #5a89db;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #edaedf), color-stop(70%, #e27bd1), color-stop(100%, #aadb5a));
+  background-image: -webkit-linear-gradient(top, #edc2ae 0%, #e2d47b 70%, #dba75a 100%);
+  background-image: -moz-linear-gradient(top, #edd1ae 0%, #e27be0 70%, #d7db5a 100%);
+  background-image: -ms-linear-gradient(top, #ede3ae 0%, #e2c87b 70%, #ce5adb 100%);
+  background-image: -o-linear-gradient(top, #ebedae 0%, #7be295 70%, #db5a9d 100%);
+  background-image: linear-gradient(top, #ceedae 0%, #7bbbe2 70%, #67db5a 100%);
+}
+.userBannerLegend  {
+  border-color: #459fd6 #d2c230 #b28b27;
+  background-color: #dbc65a;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #edaedf), color-stop(70%, #e27bd1), color-stop(100%, #aadb5a));
+  background-image: -webkit-linear-gradient(top, #edaec4 0%, #7be2ad 70%, #db5a6d 100%);
+  background-image: -moz-linear-gradient(top, #edaec2 0%, #e27be0 70%, #d7db5a 100%);
+  background-image: -ms-linear-gradient(top, #ede3ae 0%, #e2c87b 70%, #ce5adb 100%);
+  background-image: -o-linear-gradient(top, #ebedae 0%, #e2b07b 70%, #db5a9d 100%);
+  background-image: linear-gradient(top, #ceedae 0%, #e2937b 70%, #67db5a 100%);
+}
+.credit-bar {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  line-height: 22px;
+  font-size: 14px;
+  text-align: right;
+}
+.userBanner.userBanner--lightGreen {
+  color: #000;
+  background: #ccf9c8;
+  border-color: #bee8ba;
+}
+.credit-bar .credit-progress .credit-progress-bar {
+  float: left;
+  width: 0%;
+  height: 100%;
+  color: #fff;
+  text-align: center;
+  -webkit-box-shadow: inset 0 -1px 0 rgba(0,0,0,0.15);
+  box-shadow: inset 0 -1px 0 rgba(0,0,0,0.15);
+  -webkit-transition: width .6s ease;
+  -o-transition: width .6s ease;
+  transition: width .6s ease;
+  background-image: -webkit-linear-gradient(45deg, rgba(255,255,255,0.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.15) 50%, rgba(255,255,255,0.15) 75%, transparent 75%, transparent);
+  background-image: -o-linear-gradient(45deg, rgba(255,255,255,0.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.15) 50%, rgba(255,255,255,0.15) 75%, transparent 75%, transparent);
+  background-image: linear-gradient(45deg, rgba(255,255,255,0.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.15) 50%, rgba(255,255,255,0.15) 75%, transparent 75%, transparent);
+  -webkit-background-size: 40px 40px;
+  background-size: 40px 40px;
+}
+.blue{background:linear-gradient(-45deg, #36f45f, #1e51e9, #5cb027, #b73a6c, #2196f3, #00bcd4, #009688, #4caf50, #cddc39, #ffeb3b, #ffc107, #ff9800);background-size:400% 400%;-webkit-animation:gradient 15s ease infinite;-o-animation:gradient 15s ease infinite;animation:gradient 15s ease infinite;color:#FFF;}  @-webkit-keyframes gradient{0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%}}  @-o-keyframes gradient{0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%}}  @-moz-keyframes gradient{0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%}}  @keyframes gradient{0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%}}  .userBannerModerator{background-color:#0D47A1;color:#FFF !important}
+.userBannerHero{background:linear-gradient(-45deg, #36f45f, #1e51e9, #5cb027, #b73a6c, #2196f3, #00bcd4, #009688, #4caf50, #cddc39, #ffeb3b, #ffc107, #ff9800);background-size:400% 400%;-webkit-animation:gradient 15s ease infinite;-o-animation:gradient 15s ease infinite;animation:gradient 15s ease infinite;color:#FFF;}  @-webkit-keyframes gradient{0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%}}  @-o-keyframes gradient{0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%}}  @-moz-keyframes gradient{0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%}}  @keyframes gradient{0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%}}  .userBannerModerator{background-color:#0D47A1;color:#FFF !important}
+.userBannerSupperHero{background:linear-gradient(-45deg, #36f45f, #cbe91e, #b02742, #3eb73a, #2196f3, #00bcd4, #009688, #4caf50, #cddc39, #ffeb3b, #ffc107, #ff9800);background-size:400% 400%;-webkit-animation:gradient 15s ease infinite;-o-animation:gradient 15s ease infinite;animation:gradient 15s ease infinite;color:#FFF;}  @-webkit-keyframes gradient{0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%}}  @-o-keyframes gradient{0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%}}  @-moz-keyframes gradient{0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%}}  @keyframes gradient{0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%}}  .userBannerModerator{background-color:#0D47A1;color:#FFF !important}
+.userBannerLegend {background:linear-gradient(-45deg, #36f45f, #1e51e9, #5cb027, #3ab772, #2196f3, #00bcd4, #009688, #4caf50, #cddc39, #ffeb3b, #ffc107, #ff9800);background-size:400% 400%;-webkit-animation:gradient 15s ease infinite;-o-animation:gradient 15s ease infinite;animation:gradient 15s ease infinite;color:#FFF;}  @-webkit-keyframes gradient{0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%}}  @-o-keyframes gradient{0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%}}  @-moz-keyframes gradient{0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%}}  @keyframes gradient{0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%}}  .userBannerModerator{background-color:#0D47A1;color:#FFF !important}
+.userBannerModeratorIdol{background:linear-gradient(-45deg, #f44336, #e91e63, #9c27b0, #673ab7, #2196f3, #00bcd4, #009688, #4caf50, #cddc39, #ffeb3b, #ffc107, #ff9800);background-size:400% 400%;-webkit-animation:gradient 15s ease infinite;-o-animation:gradient 15s ease infinite;animation:gradient 15s ease infinite;color:#FFF;}@-webkit-keyframes gradient{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}@-o-keyframes gradient{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}@-moz-keyframes gradient{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}@keyframes gradient{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}.userBannerModerator{background-color:#0D47A1;color:#FFF !important}
+.username--style7 {
+  background-image: url(/vip.png);
+  color: #FFCF5C;
+  background-repeat: no-repeat;
+  padding-left: 20px;
+  background-size: 15px;
+}
+.username--style22 {
+  background-image: url(/legendary.png);
+  color: #00796B;
+  background-repeat: no-repeat;
+}
+.username--style24 {
+  background-image: url(/ancient.png);
+  color: #004D40;
+  background-repeat: no-repeat;
+}
+.username--style5 {
+  background-image: url(/super-moderator.png);
+  color: #2E7D32;
+  background-repeat: no-repeat;
+}
+.userBannerVip {
+  background-color: #FFCF5C;
+  color: #FFF;
+}
+.userBannerVip strong {
+  color: #FFF !important;
+}
+.userBannerPro {
+  background-color: #FFCF5C;
+  color: #FFF;
+}
+.userBannerPro strong {
+  color: #FFF !important;
+}
+.userBannerSupperPro {
+  background: linear-gradient(-45deg, #36f449, #1ee9d8, #b03727, #b73ab5, #2196f3, #00bcd4, #009688, #4caf50, #cddc39, #ffeb3b, #ffc107, #ff9800);
+  color: #FFF;
+}
+.userBannerSupperPro strong {
+  color: #FFF !important;
+}
+.userBannerHero strong {
+  color: #FFF !important;
+}
+.userBannerSupperHero strong {
+  color: #FFF !important;
+}
+.userBannerLegend  strong {
+  color: #FFF !important;
+}
