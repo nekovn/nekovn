@@ -27,7 +27,7 @@
 <script>
 import QuoteCard from '~/components/cards/QuoteCard'
 import {getLoadIcon} from '@/helpers/notication';
-import {mapState,mapActions} from "vuex";
+import { mapActions, mapGetters} from "vuex";
 
 export default {
   head() {
@@ -36,12 +36,15 @@ export default {
     }
   },
   components: {QuoteCard},
-  watchQuery: true,
   async asyncData({store}) {
+    const id =  await store.dispatch('page/actAboutMenus');
     await Promise.all([
-      store.dispatch('posts/actFetchLatestPost'),
-      store.dispatch('page/actAboutMenus')
-      ])},
+        store.dispatch('page/actGetPageAbout', id),
+        store.dispatch('posts/actFetchLatestPost')
+      ]
+    )
+
+  },
   methods:{
     ...mapActions({
       setLoading  : 'setLoading'
@@ -52,8 +55,8 @@ export default {
     }
   },
   computed: {
-    ...mapState({
-      page: state => state.page.AboutList
+    ...mapGetters({
+      page:'page/getAboutList'
     }),
     getContent(){
       if(this.page && this.page.content){

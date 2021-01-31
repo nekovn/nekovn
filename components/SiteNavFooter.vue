@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3>リンク</h3>
+    <h3>はじめての方へ</h3>
     <link-card/>
   </div>
 </template>

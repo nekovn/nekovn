@@ -52,15 +52,9 @@ export default {
       title: `${this.title} | ${this.$siteConfig.siteName}`
     }
   },
-  watchQuery: true,
-  validate({params}) {
-    if (!params.single || !params.single.trim()) { // kiểm tra xem chuỗi có tồn tại hay ko
-      return false;
-    }
-    return true;
-  },
   async asyncData({params, store, error}) {
-    const slug = params.single;
+    await store.dispatch('actMainMenus');
+    const slug = (params.single)?params.single:'';
     const res = await store.dispatch('category/actGetCategoryBySlug', {slug});
     if (res.ok) {
       await store.dispatch('posts/actFetchArticlesList', {
@@ -73,6 +67,7 @@ export default {
     } else {
       return error({statusCode: 402, message: 'Post not found'})
     }
+
   },
 
   computed: {

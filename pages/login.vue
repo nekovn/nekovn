@@ -82,11 +82,8 @@ export default {
     }
   },
   components: { QuoteCard },
-  watchQuery: true,
-  async asyncData({store,req}) {
-    await Promise.all([
-      store.dispatch('posts/actFetchLatestPost'),
-    ])//vì 2 cái api ko liên quan nên cho nó chạy song song
+  async asyncData({store}) {
+    await store.dispatch('posts/actFetchLatestPost')
   },
   computed: {
     getSubTitle(){
@@ -119,7 +116,6 @@ export default {
       e.preventDefault(); //ngăn chặn trang web bị load lại cho chức năng submit
       this.isLoading = true;
       if (this.username && this.password) {
-        if (!document.cookie) {
           this.actLogin({
             username: this.username,
             password: this.password
@@ -134,10 +130,6 @@ export default {
                 this.isLoading = false;
               }
             })
-        } else {
-          notication_success(this, 'ログインしました')
-          this.$router.push('/'); // router đẩy nó sang trang home
-        }
       } else {
         notication_error(this, 'アカウントを入力してください !');
         this.isLoading = false;

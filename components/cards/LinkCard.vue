@@ -65,6 +65,7 @@
 import SiteSearch from '~/components/SiteSearch'
 import {mapActions, mapGetters, mapState} from "vuex";
 import {getLoadIcon} from '@/helpers/notication';
+import { getTokenFromCookie} from '@/helpers'
 
 export default {
   name: "link-card",
@@ -74,10 +75,11 @@ export default {
     navBarClass : {Boolean,default:false}
   },
   components: {SiteSearch},
+  async fetch({store}, {req}) {
+    const token = getTokenFromCookie(req);
+    await store.dispatch('author/actFetchCurrentUser',token)
+  },
   computed: {
-    ...mapGetters([
-      'mainMenuItems',
-    ]),
     authorLink() {
       return `/user/${this.currentUser.id}`
     },
@@ -99,7 +101,7 @@ export default {
     }),
     handleUpdate(e) {
       //  bật loading
-      getLoadIcon(this, 3000);
+      getLoadIcon(this, 1000);
     },
 
     handleLogout() {

@@ -64,12 +64,12 @@ export default {
   },
 
   async actLogin({dispatch}, {username, password}) {
-
     try {
       const response = await this.$wpApi.post('/jwt-auth/v1/token', {
         username,
         password
       });
+
       if (response.status === 200 && response.data) {
         //gắn token vào cookie
         //exdays: số ngày cho đến khi cookie hết hạn (2d)

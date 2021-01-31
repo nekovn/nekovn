@@ -1,21 +1,4 @@
 export default {
-  async actGetPageAbout ({commit,rootState},id){
-    try{
-      const response = await this.$api.get('/pages/'+id);
-      if(response.status === 200 && response.data){
-        commit('setPageListAbout',response.data);
-        return {
-          ok : true,
-          data : response.data
-        }
-      }
-    }catch (e) {
-      return {
-        ok : false,
-        error:e.message
-      }
-    }
-  },
   async actGetHomeAbout ({commit,rootState},id){
     try{
       const response = await this.$api.get('/pages/'+id);
@@ -54,18 +37,34 @@ export default {
     try {
       const response = await this.$wpApi.get('/menus/v1/menus/about-menu');
       if (response.status === 200) {
-        const id = response.data.items[0].object_id;
-        dispatch('actGetPageAbout', id)
+        return  response.data.items[0].object_id;
+
       }
     } catch (e) {
+    }
+  },
+  async actGetPageAbout ({commit,rootState},id){
+    try{
+      const response = await this.$api.get('/pages/'+id);
+      if(response.status === 200 && response.data){
+        commit('setPageListAbout',response.data);
+        return {
+          ok : true,
+          data : response.data
+        }
+      }
+    }catch (e) {
+      return {
+        ok : false,
+        error:e.message
+      }
     }
   },
   async actHomeMenus({dispatch}) {
     try {
       const response = await this.$wpApi.get('/menus/v1/menus/Home-menu');
       if (response.status === 200) {
-        const id = response.data.items[0].object_id;
-        dispatch('actGetHomeAbout', id)
+        return response.data.items[0].object_id;
       }
     } catch (e) {
     }
@@ -74,8 +73,7 @@ export default {
     try {
       const response = await this.$wpApi.get('/menus/v1/menus/Footer-menu');
       if (response.status === 200) {
-        const id = response.data.items[0].object_id;
-        dispatch('actGetFooterIntroduce', id)
+        return  response.data.items[0].object_id;
       }
     } catch (e) {
     }

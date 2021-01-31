@@ -34,7 +34,7 @@
   </div>
 </template>
 <script>
-import  { mapState ,mapActions} from 'vuex'
+import  {mapActions , mapGetters} from 'vuex'
 import  { getFormattedDate } from '../helpers'
 import  {getLoadIcon} from '@/helpers/notication';
 import Markdown from '~/components/Markdown'
@@ -58,15 +58,8 @@ export default {
       author:'',
     }
   },
-  watchQuery: true,
-  validate({params}) {
-    if (!params.singlePost || !params.singlePost.trim()) { // kiểm tra xem chuỗi có tồn tại hay ko
-      return false;
-    }
-    return true;
-  },
   async asyncData({params, store,error}) {
-    const slug = params.singlePost;
+    const slug = (params.singlePost) ? params.singlePost : '' ;
     const res = await store.dispatch('posts/actFetchArticleBySlug', {slug})
     if (res.ok) {
       const title        = (res.post.title.rendered) ? res.post.title.rendered:'';
@@ -76,7 +69,7 @@ export default {
 
 
       const contentRep   = seoDes.toLowerCase()
-                                  .replace(/#|_|-|<h2|<\/h2|<h3|<\/h3|<h1|<\/h1|~|>|<p|<\/p|<strong|<\/strong|\n|\r|\*|!|\+|`|\||\[|\]|_|:/g, '');
+        .replace(/#|_|-|<h2|<\/h2|<h3|<\/h3|<h1|<\/h1|~|>|<p|<\/p|<strong|<\/strong|\n|\r|\*|!|\+|`|\||\[|\]|_|:/g, '');
       const subtitle     = contentRep.length > 500 ? contentRep.substring(0,499): contentRep;
       const url          = (res.post.slug) ? (process.env.URL ? process.env.URL :'')+res.post.slug:'';
       const featureImage = (res.post.featured_media_url) ? res.post.featured_media_url:'';
@@ -96,11 +89,12 @@ export default {
     }else{
       return error({ statusCode: 402, message: 'Post not found' })
     }
+
   },
   computed: {
-    ...mapState({
-      post: state => state.posts.postDetail,
-      relatedPostByCategory:state => state.posts.latestListByCategory,
+    ...mapGetters({
+      post:'posts/getPostDetail',
+      relatedPostByCategory:'posts/getRelatedPostByCategory',
     }),
     date() {
       if(this.post.date){

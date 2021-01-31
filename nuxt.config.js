@@ -32,7 +32,7 @@ export default {
    ** Build configuration
    */
   env: {
-    baseUrl : process.env.BASE_URL || 'http://learning-nuxtjs.xyz/blogs/wp-json',
+    baseUrl : process.env.BASE_URL || 'https://neko-vn.jp/blogs/wp-json',
   },
 
   components: true,

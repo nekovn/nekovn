@@ -18,7 +18,7 @@
 </template>
 <script>
 import PostCard from '~/components/cards/PostCard'
-import {mapState} from "vuex"
+import {mapState,mapGetters} from "vuex"
 export default {
   name: 'PostsGrid',
   watchQuery: true,
@@ -39,14 +39,13 @@ export default {
     }
   },
   computed:{
-    ...mapState({
-        post:state => state.posts.postDetail,
-        postView:state => state.posts.popularList,
-        postLatest:state => state.posts.latestList,
-        postOther:state => state.posts.otherPosts,
-        relatedPostByCategory:state => state.posts.latestListByCategory,
-
-      }),
+    ...mapGetters({
+      post:'posts/getPostDetail',
+      postView:'posts/getPostView',
+      postLatest:'posts/getPostLatest',
+      postOther:'posts/getPostOther',
+      relatedPostByCategory:'posts/getRelatedPostByCategory',
+    }),
     CheckTypeName(){
       if(this.params && this.params ==='contact'){
         return this.postLatest;

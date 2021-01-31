@@ -41,6 +41,9 @@ export default {
         if (this.image.indexOf('/uploads') === 0) {
           return {src: require(`~/assets${this.image}`), srcSet: ''}
         }
+        else if (this.image.indexOf('https://picsum.photos/') === 0){
+          return {src: this.image, srcSet: ''}
+        }
         return {src: this.image, srcSet: ''}
       }
 

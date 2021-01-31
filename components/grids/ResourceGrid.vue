@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="!resource.length">
+    <div v-if="!resource.length && isLoading">
       {{ $siteConfig.noPost }}
     </div>
     <presentational-grid
@@ -20,7 +20,7 @@
 
 <script>
 import PresentationalGrid from './PresentationalGrid'
-import {mapState, mapActions} from 'vuex';
+import {mapActions,mapGetters} from 'vuex';
 export default {
   name: 'ResourceGrid',
   components: { PresentationalGrid },
@@ -44,11 +44,10 @@ export default {
     }
   },
   computed: {
-    ...mapState({
-      wpTotal: state => state.posts.articlesPaging.wpTotal,
-      wpTotalPages: state => state.posts.articlesPaging.wpTotalPages,
-      curPage: state => state.posts.articlesPaging.curPage,
-      articles: state => state.posts.articlesPaging.articles,
+    ...mapGetters({
+      wpTotalPages:'posts/getWpTotalPages',
+      curPage:'posts/getCurrentPage',
+      articles:'posts/getArticles',
     }),
     hasMoreArticles(){
       return this.curPage < this.wpTotalPages

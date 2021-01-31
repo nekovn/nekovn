@@ -65,6 +65,16 @@ export default {
       email: '',
     }
   },
+  components: { QuoteCard },
+  async asyncData({store}) {
+    await store.dispatch('posts/actFetchLatestPost')
+  },
+  computed: {
+    getSubTitle(){
+      return `ユーザーID / パスワードの確認や再設定をしたい個人会員`
+    },
+
+  },
   methods: {
     ...mapActions({
       setLoading  : 'setLoading',
@@ -105,20 +115,7 @@ export default {
         this.isLoading = false;
       }
     },
-  },
-  components: { QuoteCard },
-  watchQuery: true,
-  async asyncData({store,req}) {
-    await Promise.all([
-      store.dispatch('posts/actFetchLatestPost'),
-    ])//vì 2 cái api ko liên quan nên cho nó chạy song song
-  },
-  computed: {
-    getSubTitle(){
-      return `ユーザーID / パスワードの確認や再設定をしたい個人会員`
-    },
-
-  },
+  }
 }
 </script>
 <style>

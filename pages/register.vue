@@ -103,6 +103,10 @@ export default {
       isShowPassword: false
     }
   },
+  components: { QuoteCard },
+  async asyncData({store}) {
+    await store.dispatch('posts/actFetchLatestPost')
+  },
   computed: {
     getSubTitle(){
       return `アカウントを登録して、${this.$siteConfig.siteName}から詳細情報を受け取ります`
@@ -158,13 +162,7 @@ export default {
       this.isShowPassword = !this.isShowPassword
     }
   },
-  components: { QuoteCard },
-  watchQuery: true,
-  async asyncData({store,req}) {
-    await Promise.all([
-      store.dispatch('posts/actFetchLatestPost'),
-    ])//vì 2 cái api ko liên quan nên cho nó chạy song song
-  },
+
 
 }
 </script>

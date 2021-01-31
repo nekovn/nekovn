@@ -1,6 +1,6 @@
   <template>
   <div id="categories-page" class="page-wrapper categories-page" >
-    <site-hero :subtitle="getSubTitle" title="カテゴリ" image="https://picsum.photos/1800/1801" />
+    <site-hero :subtitle="getSubTitle" title="投稿カテゴリー" image="https://picsum.photos/1800/1801" />
     <main-section theme="one-column">
       <div @click="handleUpdate">
         <categories-grid :resource="mainMenuItems"/>
@@ -17,6 +17,9 @@ export default {
       title: `カテゴリ | ${this.$siteConfig.siteName}`
     }
   },
+  async asyncData({store}) {
+    await store.dispatch('actMainMenus')
+  },
   methods:{
     ...mapActions({
       setLoading  : 'setLoading'
@@ -31,7 +34,7 @@ export default {
          'mainMenuItems'
     ]),
     getSubTitle(){
-      return `ここにすべての${this.$siteConfig.siteName}の投稿のカテゴリ`
+      return `ここにすべての${this.$siteConfig.siteName}の投稿カテゴリー`
     }
   }
 }

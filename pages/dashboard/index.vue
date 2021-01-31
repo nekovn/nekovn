@@ -185,7 +185,7 @@
           <!-- Button Submit -->
           <a-form-item v-bind:wrapper-col="{ span: 16, offset: 8 }">
             <a-button type="primary" html-type="submit" v-bind:loading="loading">
-              Lưu thông tin
+              保存
             </a-button>
           </a-form-item>
         </a-form>

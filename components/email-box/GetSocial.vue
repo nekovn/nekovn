@@ -38,18 +38,21 @@
 </template>
 
 <script>
-import {mapState} from 'vuex';
+import {mapGetters} from 'vuex';
 export default {
   name: "get-social",
+  async fetch({store}) {
+    await store.dispatch('posts/actFetchAdminInf')
+  },
   computed: {
-    ...mapState({
-      page: state => state.posts.adminInf
+    ...mapGetters({
+      page:'posts/getAdminInf'
     }),
     getFacebook() {
       if (this.page && this.page.facebook_link) {
         return this.page.facebook_link;
       } else {
-        return ''
+        return 'https://www.facebook.com/letgo.cuong/'
       }
     },
     getInstagram() {

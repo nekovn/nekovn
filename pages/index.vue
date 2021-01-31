@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import { mapActions , mapState } from 'vuex'
+import { mapActions  ,mapGetters} from 'vuex'
 import {getLoadIcon} from '@/helpers/notication';
 import NewsLetterFormModal from '~/components/NewsLetterFormModal'
 
@@ -36,9 +36,17 @@ export default {
       title: `ホーム | ${this.$siteConfig.siteName}`
     }
   },
+  async asyncData({store,req}) {
+    const id =  await store.dispatch('page/actHomeMenus');
+    await Promise.all([
+        store.dispatch('page/actGetHomeAbout',id),
+        store.dispatch('posts/actFetchPopularPost')
+      ]
+    )
+  },
   computed: {
-    ...mapState({
-      page: state => state.page.HomeList
+    ...mapGetters({
+      page:'page/getHomeList'
     }),
     getSubTitle(){
       if(this.page && this.page.content){
@@ -59,7 +67,7 @@ export default {
       if(this.page && this.page.featured_media_url){
         return this.page.featured_media_url
       }else{
-        return this.$siteConfig.featureImage
+        return 'https://picsum.photos/1800/1808'
       }
     }
   },
@@ -75,11 +83,7 @@ export default {
   components: {
     NewsLetterFormModal
   },
-  watchQuery: true,
-  async asyncData({store,req}) {
-    await store.dispatch('page/actHomeMenus'),
-    await store.dispatch('posts/actFetchPopularPost')
-  },
+
 }
 </script>
 

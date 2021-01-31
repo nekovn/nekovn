@@ -24,7 +24,7 @@ export const mutations = {
   },
   set(state, data) {
     state = Object.assign(state, data)
-  }
+  },
 }
 // gettters để ánh xạ lại 1 mãng dữ liệu mới
 export const getters = {
@@ -33,7 +33,7 @@ export const getters = {
       return RecursiveMenuItems(item);
     })
     return newItems;
-  }
+  },
 }
 export const actions = {
   setLoading({commit}, loading=false) {
@@ -44,11 +44,11 @@ export const actions = {
     //nuxtServerInit hàm mặc định của nuxt để gọi ở phía sever
     const token = getTokenFromCookie(req);
     const data  = null;
+    const id    = await dispatch('page/actFooterIntroduce');
     await Promise.all([
       dispatch('author/actFetchCurrentUser',token),
       dispatch('set',{data}),
-      dispatch('actMainMenus'),
-      dispatch('page/actFooterIntroduce'),
+      dispatch('page/actGetFooterIntroduce', id),
       dispatch('posts/actFetchAdminInf'),
       ]
     )
@@ -60,6 +60,25 @@ export const actions = {
         commit('setAppMainMenus', response.data);
       }
 
+    } catch (e) {
+    }
+  },
+
+  async actFetchLatestPost({commit}) {
+    try {
+      const response = await this.$api.get('/posts', {
+        params: {
+          page: 1,//trang hiện tại
+          per_page: 4,//số bài viết trên 1 trang
+        }
+      });
+
+      if (response.status === 200) {
+        commit('setlatestList', response.data)
+      }
+      return {
+        ok: true
+      }
     } catch (e) {
     }
   },

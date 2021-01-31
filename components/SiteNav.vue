@@ -49,7 +49,7 @@ export default {
     handleUpdate(e){
       //  bật loading
       this.active = false
-      getLoadIcon(this,3000);
+      getLoadIcon(this,1000);
 
     }
   }

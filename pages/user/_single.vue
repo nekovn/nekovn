@@ -61,7 +61,7 @@
   </div>
 </template>
 <script>
-import {mapActions, mapState} from 'vuex'
+import {mapActions, mapState , mapGetters} from 'vuex'
 import {getFormattedDate} from '@/helpers'
 import antDesignVue from '@/plugins/ant-design-vue';
 import {getLoadIcon} from '@/helpers/notication';
@@ -80,18 +80,11 @@ export default {
     return {
       image: '/uploads/admin.jpg',
       author_id: null,
-      isLoading: false
+      isLoading: false,
     }
   },
-  watchQuery: true,
-  validate({params}) {
-    if (!params.single || !params.single.trim()) {
-      return false;
-    }
-    return true;
-  },
-  async asyncData({store, params, error}) {
-    const user_id = Number(params.single);
+  async asyncData ({store, params, error}) {
+    const user_id = (Number(params.single)) ?  Number(params.single) : 1 ;
     const res = await store.dispatch('posts/actFetchUserInf', {user_id});
     if (!res.ok) {
       return error({statusCode: 402, message: 'Post not found'})
@@ -109,6 +102,7 @@ export default {
         author_id: user_id
       }
     }
+
   },
   methods: {
     ...mapActions({
@@ -134,11 +128,11 @@ export default {
     }
   },
   computed: {
-    ...mapState({
-      userInf: state => state.posts.userInf,
-      wpTotalPages: state => state.posts.articlesPagingAuthor.wpTotalPages,
-      curPage: state => state.posts.articlesPagingAuthor.curPage,
-      articles: state => state.posts.articlesPagingAuthor.articles,
+    ...mapGetters({
+      userInf:'posts/getUserInf',
+      wpTotalPages:'posts/getWpTotalPages',
+      curPage:'posts/getCurrentPage',
+      articles:'posts/getArticles',
     }),
     hasMoreArticles() {
       return this.curPage < this.wpTotalPages

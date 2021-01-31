@@ -32,7 +32,7 @@
           </div>
 
           <li v-else>
-            Không có kết quả
+            見つかりませんでした。
             <font-awesome-icon
               icon="times"
               @click="toggleSearchBar()"

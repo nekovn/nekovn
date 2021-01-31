@@ -67,12 +67,8 @@ export default {
       image: '/uploads/admin.jpg',
     }
   },
-  watchQuery: true,
-  async asyncData({store,req}) {
-    await Promise.all([
-      store.dispatch('posts/actFetchLatestPost'),
-    ])//vì 2 cái api ko liên quan nên cho nó chạy song song
-
+  async asyncData({store}) {
+    await store.dispatch('posts/actFetchLatestPost')
   },
   components: { ContactForm },
   methods:{

@@ -1,7 +1,7 @@
 export default () => {
   return {
-    AboutList: [],
     HomeList: [],
+    AboutList: [],
     IntroList:[],
   }
 }
