@@ -36,7 +36,8 @@ export default {
     }
   },
   components: {QuoteCard},
-  async asyncData({store}) {
+  fetchOnServer: false,
+  async fetch({store}) {
     const id =  await store.dispatch('page/actAboutMenus');
     await Promise.all([
         store.dispatch('page/actGetPageAbout', id),

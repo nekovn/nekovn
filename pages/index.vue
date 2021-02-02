@@ -36,7 +36,8 @@ export default {
       title: `ホーム | ${this.$siteConfig.siteName}`
     }
   },
-  async asyncData({store,req}) {
+  fetchOnServer: false,
+  async fetch({store,req}) {
     const id =  await store.dispatch('page/actHomeMenus');
     await Promise.all([
         store.dispatch('page/actGetHomeAbout',id),

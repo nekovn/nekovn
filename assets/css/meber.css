@@ -185,7 +185,6 @@
   background-image: -moz-linear-gradient(top, #aed5ed 0%, #7bbbe2 70%, #5aaadb 100%);
   background-image: -ms-linear-gradient(top, #aed5ed 0%, #7bbbe2 70%, #5aaadb 100%);
   background-image: -o-linear-gradient(top, #aed5ed 0%, #7bbbe2 70%, #5aaadb 100%);
-  background-image: linear-gradient(top, #aed5ed 0%, #7bbbe2 70%, #5aaadb 100%);
 }
 .userBannerHero {
   border-color: #459fd6 #bad230 #b22794;
@@ -195,7 +194,6 @@
   background-image: -moz-linear-gradient(top, #edd1ae 0%, #e27be0 70%, #d7db5a 100%);
   background-image: -ms-linear-gradient(top, #ede3ae 0%, #cce27b 70%, #ce5adb 100%);
   background-image: -o-linear-gradient(top, #ebedae 0%, #cc7be2 70%, #db5a9d 100%);
-  background-image: linear-gradient(top, #ceedae 0%, #7bbbe2 70%, #67db5a 100%);
 }
 .userBannerSupperHero {
   border-color: #459fd6 #d230a4 #b28b27;
@@ -205,7 +203,6 @@
   background-image: -moz-linear-gradient(top, #edd1ae 0%, #e27be0 70%, #d7db5a 100%);
   background-image: -ms-linear-gradient(top, #ede3ae 0%, #e2c87b 70%, #ce5adb 100%);
   background-image: -o-linear-gradient(top, #ebedae 0%, #7be295 70%, #db5a9d 100%);
-  background-image: linear-gradient(top, #ceedae 0%, #7bbbe2 70%, #67db5a 100%);
 }
 .userBannerLegend  {
   border-color: #459fd6 #d2c230 #b28b27;
@@ -215,7 +212,6 @@
   background-image: -moz-linear-gradient(top, #edaec2 0%, #e27be0 70%, #d7db5a 100%);
   background-image: -ms-linear-gradient(top, #ede3ae 0%, #e2c87b 70%, #ce5adb 100%);
   background-image: -o-linear-gradient(top, #ebedae 0%, #e2b07b 70%, #db5a9d 100%);
-  background-image: linear-gradient(top, #ceedae 0%, #e2937b 70%, #67db5a 100%);
 }
 .credit-bar {
   margin-top: 10px;

@@ -7,6 +7,7 @@ export default {
         }
       });
       if(response.status === 200 && response.data.length){
+        commit('setSlugCategories', response.data[0])
         return {
           ok : true,
           data : response.data[0]

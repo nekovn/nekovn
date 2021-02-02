@@ -82,7 +82,8 @@ export default {
     }
   },
   components: { QuoteCard },
-  async asyncData({store}) {
+  fetchOnServer: false,
+  async fetch({store}) {
     await store.dispatch('posts/actFetchLatestPost')
   },
   computed: {

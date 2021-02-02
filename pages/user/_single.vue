@@ -79,11 +79,12 @@ export default {
   data() {
     return {
       image: '/uploads/admin.jpg',
-      author_id: null,
+      author_id: this.$route.params.single,
       isLoading: false,
     }
   },
-  async asyncData ({store, params, error}) {
+  fetchOnServer: false,
+  async fetch ({store, params, error}) {
     const user_id = (Number(params.single)) ?  Number(params.single) : 1 ;
     const res = await store.dispatch('posts/actFetchUserInf', {user_id});
     if (!res.ok) {
@@ -98,9 +99,6 @@ export default {
           author: user_id,
         }),
       ])
-      return {
-        author_id: user_id
-      }
     }
 
   },

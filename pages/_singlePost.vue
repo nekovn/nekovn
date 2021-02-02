@@ -58,7 +58,8 @@ export default {
       author:'',
     }
   },
-  async asyncData({params, store,error}) {
+  fetchOnServer: false,
+  async fetch({params, store,error}) {
     const slug = (params.singlePost) ? params.singlePost : '' ;
     const res = await store.dispatch('posts/actFetchArticleBySlug', {slug})
     if (res.ok) {

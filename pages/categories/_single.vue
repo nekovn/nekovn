@@ -9,7 +9,7 @@
       <main-section theme="sidebar-right">
         <template v-slot:default>
           <!-- Posts in Category -->
-          <posts-grid :category="articles" :id="category" :per-row="2"/>
+          <posts-grid :category="articles" :id="getCategory" :per-row="2"/>
         </template>
         <template v-slot:sidebar>
           <h3 class="subtitle">
@@ -22,7 +22,7 @@
               :to="`/categories/${cat.slug}`"
               :class="{
               'panel-block': true,
-              'is-active': cat.slug === active
+              'is-active': cat.slug === getActive
             }"
             >
               {{ cat.title }}
@@ -40,8 +40,6 @@ import {getLoadIcon} from '@/helpers/notication';
 export default {
   data() {
     return {
-      category: null,
-      active: '',
       title: '',
       subtitle: '',
       image: '',
@@ -52,7 +50,8 @@ export default {
       title: `${this.title} | ${this.$siteConfig.siteName}`
     }
   },
-  async asyncData({params, store, error}) {
+  fetchOnServer: false,
+  async fetch({params, store, error}) {
     await store.dispatch('actMainMenus');
     const slug = (params.single)?params.single:'';
     const res = await store.dispatch('category/actGetCategoryBySlug', {slug});
@@ -60,10 +59,6 @@ export default {
       await store.dispatch('posts/actFetchArticlesList', {
         categories: [res.data.id] // lấy bài viết có id của categories
       });
-      return { //khi return ve 1 obj thì nó tự gộp vào data
-        category : res.data,
-        active   : slug
-      }
     } else {
       return error({statusCode: 402, message: 'Post not found'})
     }
@@ -72,8 +67,9 @@ export default {
 
   computed: {
     ...mapGetters({
-      articles: 'posts/getArticleList',
-      mainMenu: 'mainMenuItems'
+      articles       : 'posts/getArticleList',
+      category       : 'category/getSlugCategories',
+      mainMenu       : 'mainMenuItems',
     }),
     getTitle(){
       if(this.title){
@@ -81,6 +77,12 @@ export default {
       }else{
         return this.$siteConfig.siteName
       }
+    },
+    getActive(){
+      return  this.$route.params.single
+    },
+    getCategory(){
+      return  this.category
     },
     getSubTitle(){
       if(this.subtitle){
@@ -108,7 +110,7 @@ export default {
   },
   created() {
     this.mainMenu.filter(value => {
-      if (value.slug === this.active) {
+      if (value.slug === this.$route.params.single) {
         this.title     = value.title;
         this.image     = value.image;
         this.subtitle  = value.description;

@@ -17,7 +17,8 @@ export default {
       title: `カテゴリ | ${this.$siteConfig.siteName}`
     }
   },
-  async asyncData({store}) {
+  fetchOnServer: false,
+  async fetch({store}) {
     await store.dispatch('actMainMenus')
   },
   methods:{

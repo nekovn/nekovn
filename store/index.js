@@ -39,7 +39,7 @@ export const actions = {
   setLoading({commit}, loading=false) {
     commit('SET_LOADING',loading)
   },
-  async nuxtServerInit({commit, dispatch}, {req}) { // gọi api toàn cục của trang web
+  async nuxtServerInit ({commit, dispatch}, {req}) { // gọi api toàn cục của trang web
     //dữ liệu dung chung cho tất cả các trang
     //nuxtServerInit hàm mặc định của nuxt để gọi ở phía sever
     const token = getTokenFromCookie(req);

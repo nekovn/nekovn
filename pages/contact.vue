@@ -67,7 +67,8 @@ export default {
       image: '/uploads/admin.jpg',
     }
   },
-  async asyncData({store}) {
+  fetchOnServer: false,
+  async fetch({store}) {
     await store.dispatch('posts/actFetchLatestPost')
   },
   components: { ContactForm },

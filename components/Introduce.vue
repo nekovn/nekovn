@@ -13,10 +13,6 @@
 import { mapGetters } from 'vuex'
 export default {
   name: "introduce",
-  async fetch({store}) {
-    const id =  await store.dispatch('page/actFooterIntroduce');
-    await store.dispatch('page/actGetFooterIntroduce', id)
-  },
   computed: {
     ...mapGetters({
       page:'page/getIntroList'
