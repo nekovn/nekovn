@@ -23,7 +23,7 @@ export default {
       const response = await this.$api.get('/posts', {
         params: {
           page: 1,//trang hiện tại
-          per_page: 10,//số bài viết trên 1 trang
+          per_page: 15,//số bài viết trên 1 trang
           orderby: 'post_views'
         }
       });
