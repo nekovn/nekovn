@@ -94,8 +94,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      post:'posts/getPostDetail',
-      relatedPostByCategory:'posts/getRelatedPostByCategory',
+      post:'posts/getPostDetail'
     }),
     date() {
       if(this.post.date){
