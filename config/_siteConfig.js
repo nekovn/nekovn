@@ -12,7 +12,7 @@ export default {
   introduce: 'ウェブサイトについて',
   tagline: '日本とベトナムとの相互交流、観光、文化などや最新情報を写真、画像、料理でまとめてお届けします',
   url:'https://neko-vn.jp',
-  email:'neko2811@gmail.com',
+  email:'nekovn2811@gmail.com',
   address:'東京都豊島区西池袋5-19-20',
   tell:'090 2259 2811',
   pageType:'website',
@@ -80,7 +80,7 @@ export default {
     // or any other url you want to post the form data to
     mailchimp: {
       on: true,
-      email:'neko2811@gmail.com',
+      email:'nekovn2811@gmail.com',
     },
     custom: {
       on: false,
