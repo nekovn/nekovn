@@ -80,7 +80,7 @@ export default {
     // or any other url you want to post the form data to
     mailchimp: {
       on: true,
-      email:'sukivietnam19092811@gmail.com',
+      email:'neko2811@gmail.com',
     },
     custom: {
       on: false,
