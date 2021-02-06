@@ -9,7 +9,7 @@
       <post-card
         :title="item.title"
         :link="item.slug ? `/${item.slug}` : ''"
-        :image="item.featured_media_url? item.featured_media_url : '' "
+        :image="item.featured_media_url"
         :author="item.author_data"
         :date="item.date"
       />
@@ -18,7 +18,7 @@
 </template>
 <script>
 import PostCard from '~/components/cards/PostCard'
-import {mapState,mapGetters} from "vuex"
+import {mapState} from "vuex"
 export default {
   name: 'PostsGrid',
   watchQuery: true,
@@ -39,12 +39,12 @@ export default {
     }
   },
   computed:{
-    ...mapGetters({
-      post:'posts/getPostDetail',
-      postView:'posts/getPostView',
-      postLatest:'posts/getPostLatest',
-      postOther:'posts/getPostOther',
-      relatedPostByCategory:'posts/getRelatedPostByCategory',
+    ...mapState({
+      post:state => state.posts.postDetail,
+      postView:state => state.posts.popularList,
+      postLatest:state => state.posts.latestList,
+      relatedPostByCategory:state => state.posts.latestListByCategory,
+
     }),
     CheckTypeName(){
       if(this.params && this.params ==='contact'){
@@ -70,9 +70,6 @@ export default {
       }
       if(this.params && this.params === 'singlePost' ){
         return this.relatedPostByCategory;
-      }
-      if(this.params && this.params === 'user-single' ){
-        return this.postOther;
       }
       if(this.params && this.params === 'categories-single' && this.category){
         return  this.category;
