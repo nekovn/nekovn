@@ -22,10 +22,8 @@
                 </div>
                 <div class="form-control">
                   <label>パスワード</label>
-                  <i
-                    v-bind:class="togglePassword"
-                    v-on:click="handleShowPassword"
-                  ></i>
+                  <a-icon type="eye" v-on:click="handleShowPassword" v-if="!isShowPassword"/>
+                  <a-icon type="eye-invisible" v-on:click="handleShowPassword" v-else/>
                   <!-- <i class="toggle-password ion-eye-disabled"></i> -->
                   <input
                     v-model="password"
@@ -60,16 +58,12 @@
 <script>
 import QuoteCard from '~/components/cards/QuoteCard'
 import {mapActions} from 'vuex';
-import antDesignVue from '@/plugins/ant-design-vue';
 import {notication_error,notication_success,getLoadIcon} from '@/helpers/notication';
 export default {
   head() {
     return {
       title: `ログイン | ${this.$siteConfig.siteName}`
     }
-  },
-  beforeCreate() {
-    antDesignVue();
   },
   //trùng với tên file middleware/notAuthenticated
   middleware: 'notAuthenticated',
@@ -96,12 +90,6 @@ export default {
       }
       return 'password';
     },
-    togglePassword() {
-      return {
-        'ion-eye': !this.isShowPassword,
-        'ion-eye-disabled': this.isShowPassword
-      }
-    }
   },
   methods: {
     ...mapActions({
