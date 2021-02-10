@@ -22,7 +22,7 @@ export default {
   featureImage: '/uploads/home-hero.jpg',
   userEmpty:'更新中',
   noPost:'現在、投稿はありません',
-  contentSample:'ベトナムと日本の旅行や最新情報を写真、画像、料理でまとめてお届けします。ベトナム女性を気になっている人 ！ベトナム女性の性格と恋愛事情を紹介します。日本とベトナムとの相互交流、観光、文化などの交流が拡大され、信頼の関係を発展しています。',
+  contentSample:'ベトナムと日本の旅行や料理や最新情報を写真、画像でまとめてお届けします。ベトナム女性を気になっている人 ！ベトナム女性の性格と恋愛事情を紹介します。日本とベトナムとの相互交流、観光、文化などの交流が拡大され、信頼の関係を発展しています。',
   author:'admin',
   number:0,
   logo: 'logo-component', // 'logo-component', // or '/logo.svg' for regular image
