@@ -1,109 +1,355 @@
 <template>
-  <div id="home-page" class="page-wrapper home-page">
-    <site-hero :title="getTitle" :subtitle="getSubTitle" :image="getImage">
-      <button
-        v-if="$siteConfig.newsletter.on"
-        class="button is-primary show-button"
-        @click="$eventBus.$emit('modal-triggered', 'newsletter-modal')"
-      >
-        申し込む
-      </button>
-    </site-hero>
-    <main-section theme="one-column">
-      <template v-slot:default>
-        <!-- All Posts -->
-        <div @click="handleUpdate">
-          <posts-grid/>
-        </div>
-      </template>
-      <template v-slot:sidebar>
-        ここには何もない
-      </template>
-    </main-section>
-    <news-letter-form-modal />
+  <div>
+    <a-row class="style-md" v-bind:gutter="30">
+      <a-col v-bind:md="16">
+        <a-form
+          v-bind:form="form"
+          v-bind:label-col="{ span: 8 }"
+          v-bind:wrapper-col="{ span: 16 }"
+          v-on:submit="handleSubmit"
+        >
+          <!-- Username -->
+          <a-form-item label="ユーザー名">
+            <a-input
+              v-decorator="['user_name', {
+                  initialValue: this.getUserName
+              }]"
+              v-bind:disabled="true"
+            />
+          </a-form-item>
+          <!-- Email -->
+          <a-form-item label="メールアドレス">
+            <a-input
+              v-bind:disabled="true"
+              v-decorator="['email', {
+                  initialValue: this.getUserEmail
+              }]"
+            />
+          </a-form-item>
+
+
+          <a-form-item label="ネックネーム">
+            <a-input
+              v-decorator="['nickname', {
+                  rules: [
+                    { required: true, message: 'ネックネームを入力してください!' }
+                  ],
+                  initialValue: this.getUserNickName
+              }]"
+            />
+          </a-form-item>
+
+          <a-form-item label="氏名">
+            <a-input
+              v-decorator="['fullname', {
+                  rules: [
+                    { required: true, message: '氏名を入力してください!' }
+                  ],
+                  initialValue: this.fullname
+              }]"
+            />
+          </a-form-item>
+          <a-form-item label="自己紹介">
+            <a-textarea
+              v-decorator="['description', {
+                initialValue: this.getUserDescription
+              }]"
+              v-bind:auto-size="{ minRows: 5 }"
+            />
+          </a-form-item>
+
+          <!-- Button Submit -->
+          <a-form-item v-bind:wrapper-col="{ span: 16, offset: 8 }">
+            <a-button type="primary" html-type="submit" v-bind:loading="loading">
+              保存
+            </a-button>
+          </a-form-item>
+        </a-form>
+      </a-col>
+      <a-col v-bind:md="8">
+        <p>アバターをアップロードする</p>
+        <a-upload
+          name="avatar"
+          list-type="picture-card"
+          class="cus-avatar-uploader avatar-uploader"
+          v-bind:show-upload-list="false"
+          action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+          v-bind:customRequest="handleCustomRequest"
+        >
+          <img v-if="getAvatar" v-bind:src="getAvatar" alt="avatar"/>
+          <div v-else>
+            <a-icon :type="loading ? 'loading' : 'plus'"/>
+            <div class="ant-upload-text">
+              Upload
+            </div>
+          </div>
+        </a-upload>
+      </a-col>
+    </a-row>
+    <a-row class="style-sm" v-bind:gutter="30">
+      <a-col v-bind:sm="12" v-bind:md="8">
+        <p>アバターをアップロードする</p>
+        <a-upload
+          name="avatar"
+          list-type="picture-card"
+          class="cus-avatar-uploader avatar-uploader"
+          v-bind:show-upload-list="false"
+          action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+          v-bind:customRequest="handleCustomRequest"
+        >
+          <img v-if="getAvatar" v-bind:src="getAvatar" alt="avatar"/>
+          <div v-else>
+            <a-icon :type="loading ? 'loading' : 'plus'"/>
+            <div class="ant-upload-text">
+              Upload
+            </div>
+          </div>
+        </a-upload>
+      </a-col>
+      <a-col v-bind:sm="12" v-bind:md="16">
+        <a-form
+          v-bind:form="form"
+          v-bind:label-col="{ span: 8 }"
+          v-bind:wrapper-col="{ span: 16 }"
+          v-on:submit="handleSubmit"
+        >
+          <!-- Username -->
+          <a-form-item label="ユーザー名">
+            <a-input
+              v-decorator="['user_name', {
+                  initialValue: this.getUserName
+              }]"
+              v-bind:disabled="true"
+            />
+          </a-form-item>
+          <!-- Email -->
+          <a-form-item label="メールアドレス">
+            <a-input
+              v-bind:disabled="true"
+              v-decorator="['email', {
+                  initialValue: this.getUserEmail
+              }]"
+            />
+          </a-form-item>
+
+
+          <a-form-item label="ネックネーム">
+            <a-input
+              v-decorator="['nickname', {
+                  rules: [
+                    { required: true, message: 'ネックネームを入力してください!' }
+                  ],
+                  initialValue: this.getUserNickName
+              }]"
+            />
+          </a-form-item>
+
+          <a-form-item label="氏名">
+            <a-input
+              v-decorator="['fullname', {
+                  rules: [
+                    { required: true, message: '氏名を入力してください!' }
+                  ],
+                  initialValue: this.fullname
+              }]"
+            />
+          </a-form-item>
+          <a-form-item label="自己紹介">
+            <a-textarea
+              v-decorator="['description', {
+                initialValue: this.getUserDescription
+              }]"
+              v-bind:auto-size="{ minRows: 5 }"
+            />
+          </a-form-item>
+
+          <!-- Button Submit -->
+          <a-form-item v-bind:wrapper-col="{ span: 16, offset: 8 }">
+            <a-button type="primary" html-type="submit" v-bind:loading="loading">
+              保存
+            </a-button>
+          </a-form-item>
+        </a-form>
+      </a-col>
+    </a-row>
   </div>
 </template>
 
 <script>
-import { mapActions  ,mapGetters} from 'vuex'
-import {getLoadIcon} from '@/helpers/notication';
-import NewsLetterFormModal from '~/components/NewsLetterFormModal'
+import {mapState, mapActions} from 'vuex';
+import {notication_error, notication_success} from "@/helpers/notication";
 
 export default {
-  name: 'HomePage',
+  layout: 'admin',
+  watchQuery: ['page'],
   head() {
     return {
-      title: `ホーム | ${this.$siteConfig.siteName}`
+      title: `プロフィール | ${this.$siteConfig.siteName}`
     }
   },
-  fetchOnServer: false,
-  async fetch({store,req}) {
-    const id =  await store.dispatch('page/actHomeMenus');
-    await Promise.all([
-        store.dispatch('page/actGetHomeAbout',id),
-        store.dispatch('posts/actFetchPopularPost')
-      ]
-    )
+  data() {
+    return {
+      loading: false,
+      form: this.$form.createForm(this, {name: 'coordinated'}),
+      fileUpload: {
+        file: null,
+        base64: ''
+      }
+    }
   },
   computed: {
-    ...mapGetters({
-      page:'page/getHomeList'
+    ...mapState({
+      currentUser: state => state.author.currentUser
     }),
-    getSubTitle(){
-      if(this.page && this.page.content){
-        const text = this.page.content.rendered;
-        return text.replace(/#|<p>|<\/p>|/g, '').trim()
-      }else{
-        return this.$siteConfig.tagline
-      }
-    },
-    getTitle(){
-      if(this.page && this.page.title){
-        return this.page.title.rendered
-      }else{
-        return this.$siteConfig.siteName
-      }
-    },
-    getImage(){
-      if(this.page && this.page.featured_media_url){
-        return this.page.featured_media_url
-      }else{
-        return 'https://picsum.photos/1800/1808'
-      }
-    }
-  },
-  methods:{
-    ...mapActions({
-      setLoading  : 'setLoading'
-    }),
-    handleUpdate(e){
-      //  bật loading
-      getLoadIcon(this,1000);
-    }
-  },
-  components: {
-    NewsLetterFormModal
-  },
 
+    getUserEmail(){
+      if (this.currentUser && this.currentUser.email){
+        return this.currentUser.email;
+      }else{
+        return this.$siteConfig.userEmpty
+      }
+    },
+    getUserName(){
+      if (this.currentUser && this.currentUser.user_name){
+        return this.currentUser.user_name;
+      }else{
+        return this.$siteConfig.userEmpty
+      }
+    },
+    getUserDescription(){
+      if (this.currentUser && this.currentUser.description){
+        return this.currentUser.description;
+      }else{
+        return this.$siteConfig.userEmpty
+      }
+    },
+    getUserNickName(){
+      if (this.currentUser && this.currentUser.nickname){
+        return this.currentUser.nickname;
+      }else{
+        return this.$siteConfig.userEmpty
+      }
+    },
+    fullname() {
+      if (this.currentUser && this.currentUser.last_name && this.currentUser.first_name){
+        return  this.currentUser.last_name + ' ' + this.currentUser.first_name
+      }else{
+        return this.$siteConfig.userEmpty
+      }
+    },
+    getAvatar() {
+      if (this.fileUpload.base64) {
+        return this.fileUpload.base64;
+      }
+      if (this.currentUser && this.currentUser.simple_local_avatar) {
+        return this.currentUser.simple_local_avatar.full;
+      }
+      return ''
+    }
+  },
+  methods: {
+    ...mapActions({
+      actUpdateProfile: 'author/actUpdateProfile',
+    }),
+
+    splitFullName(fullNameStr) {
+      var arrFullName = fullNameStr.split(' ').filter(str => str !== '');
+
+      var first_name = arrFullName.pop();
+      var last_name = arrFullName.join(' ');
+
+      return {
+        first_name,
+        last_name
+      }
+    },
+    handleSubmit(e) {
+      e.preventDefault();
+      this.form.validateFields((err, values) => {
+        if (!err) {
+          const { first_name, last_name } = this.splitFullName(values.fullname);
+          const data = {
+            file: this.fileUpload.file,
+            first_name,
+            last_name,
+            nickname: values.nickname,
+            description: values.description,
+          }
+          this.loading = true
+          this.actUpdateProfile(data)
+            .then( res => {
+              if (res.ok) {
+                this.fileUpload = {
+                  file: null,
+                  base64: ''
+                }
+                notication_success (this,'ユーザー情報が正常に更新されました')
+                this.loading = false;
+              } else {
+                notication_error(this,res.error);
+                this.loading = false;
+              }
+              this.loading = false;
+            })
+        }
+      });
+    },
+    validateImages(file) {
+      const isJpgOrPng = file.type === 'image/jpeg' || file.type === 'image/png';
+      if (!isJpgOrPng) {
+        // this.$message.error('You can only upload JPG file!');
+        notication_error(this,'画像形式が無効です');
+        return false;
+      }
+      const isLt2M = file.size / 1024 / 1024 < 2;
+      if (!isLt2M) {
+        notication_error(this,'画像サイズは2MB未満である必要があります');
+        return false;
+      }
+      return true;
+    },
+    handleCustomRequest({ file }) {
+      if (this.validateImages(file) === false) {
+        return;
+      }
+      const reader = new FileReader();
+      reader.addEventListener('load', () => {
+        this.fileUpload = {
+          file: file,
+          base64: reader.result
+        }
+      });
+      reader.readAsDataURL(file);
+    }
+  },
 }
 </script>
 
 <style>
-.home-page .under-subtitle {
-  border-top: none;
+.cus-avatar-uploader .ant-upload.ant-upload-select-picture-card > .ant-upload {
+  padding: 0;
 }
-.animated {
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
+
+.cus-avatar-uploader .ant-upload.ant-upload-select-picture-card > .ant-upload img {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
 }
-.animated.slower {
-  -webkit-animation-duration: 3s;
-  animation-duration: 3s;
+
+.cus-avatar-uploader .ant-upload.ant-upload-select-picture-card {
+  width: 130px;
+  height: 130px;
 }
+.style-sm{
+  display: none;
+}
+
 @media screen and (max-width: 575px) {
-  .show-button {
+  /*    khu vực màn hình tử 576px trở xướng  dành cho di động*/
+  .style-sm{
+    display: block;
+  }
+  .style-md{
     display: none;
   }
 }
