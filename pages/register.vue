@@ -30,10 +30,8 @@
                 </div>
                 <div class="form-control">
                   <label for="">パスワード</label>
-                  <i
-                    v-bind:class="togglePassword"
-                    v-on:click="handleShowPassword"
-                  ></i>
+                  <a-icon type="eye" v-on:click="handleShowPassword" v-if="!isShowPassword"/>
+                  <a-icon type="eye-invisible" v-on:click="handleShowPassword" v-else/>
                   <input
                     v-model="password"
                     v-bind:type="typePassword"
@@ -42,10 +40,8 @@
                 </div>
                 <div class="form-control">
                   <label for="">パスワード（確認）</label>
-                  <i
-                    v-bind:class="togglePassword"
-                    v-on:click="handleShowPassword"
-                  ></i>
+                  <a-icon type="eye" v-on:click="handleShowPassword" v-if="!isShowPassword"/>
+                  <a-icon type="eye-invisible" v-on:click="handleShowPassword" v-else/>
                   <input
                     v-model="confirm_password"
                     v-bind:type="typePassword"
@@ -79,7 +75,6 @@
 <script>
 import QuoteCard from '~/components/cards/QuoteCard'
 import {mapActions} from 'vuex';
-import antDesignVue from '@/plugins/ant-design-vue';
 import {notication_error,notication_success,getLoadIcon} from '@/helpers/notication';
 import {_switch} from '@/helpers/notication';
 export default {
@@ -87,9 +82,6 @@ export default {
     return {
       title: `登録 | ${this.$siteConfig.siteName}`
     }
-  },
-  beforeCreate() {
-    antDesignVue();
   },
   //trùng với tên file middleware/notAuthenticated
   middleware: 'notAuthenticated',
@@ -118,12 +110,6 @@ export default {
       }
       return 'password';
     },
-    togglePassword() {
-      return {
-        'ion-eye': !this.isShowPassword,
-        'ion-eye-disabled': this.isShowPassword
-      }
-    }
   },
   methods: {
     ...mapActions({
