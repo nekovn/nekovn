@@ -20,13 +20,12 @@
             :getDes="getDes"
             :getAvatar="getAvatar"
             :getVip="getVip"
-            :getFacebookLink="getFacebookLink"
           />
           <div class="tile is-parent is-8">
             <article class="tile is-child box">
               <div class="related-post" @click="handleUpdate">
                 <h2 class="related-post__head">{{ getNickName }}の記事</h2>
-                <div v-if="articles.length === 0 "><h3>{{ $siteConfig.noPost }}</h3></div>
+                <div v-if="!articles"><h3>{{ $siteConfig.noPost }}</h3></div>
                 <PostRelatedCard
                   v-for="(item,index) in articles"
                   v-bind:key="index"
@@ -79,12 +78,11 @@ export default {
   data() {
     return {
       image: '/uploads/admin.jpg',
-      author_id: this.$route.params.single,
+      author_id: null,
       isLoading: false,
     }
   },
-  fetchOnServer: false,
-  async fetch ({store, params, error}) {
+  async asyncData ({store, params, error}) {
     const user_id = (Number(params.single)) ?  Number(params.single) : 1 ;
     const res = await store.dispatch('posts/actFetchUserInf', {user_id});
     if (!res.ok) {
@@ -99,6 +97,9 @@ export default {
           author: user_id,
         }),
       ])
+      return {
+        author_id: user_id
+      }
     }
 
   },
@@ -143,13 +144,6 @@ export default {
         return this.userInf.user_nicename
       } else {
         return this.$siteConfig.userEmpty
-      }
-    },
-    getFacebookLink() {
-      if (this.userInf && this.userInf.facebook_link) {
-        return this.userInf.facebook_link
-      } else {
-        return ''
       }
     },
     getDateRegistered() {
