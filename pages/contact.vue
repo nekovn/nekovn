@@ -14,7 +14,7 @@
                 こんにちは!
               </p>
               <p class="subtitle">
-                どうなさいました？
+                どうになっていますか？
               </p>
               <figure class="image is-1by1 ">
                 <opti-image
@@ -26,7 +26,7 @@
               <div class="content">
                 <p>
                   <strong>
-                    私達にメッセージを送ります
+                    メールでのお問い合わせ
                   </strong>
                 </p>
                 <p v-html="getContent"></p>
