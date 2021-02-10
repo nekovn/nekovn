@@ -49,16 +49,6 @@
               }]"
             />
           </a-form-item>
-          <!-- Facebook -->
-          <a-form-item label="ツイッター">
-            <a-input
-              addon-before="https://twitter.com/"
-              placeholder="John"
-              v-decorator="['url', {
-                  initialValue: this.getFacebookLink
-              }]"
-            />
-          </a-form-item>
           <a-form-item label="自己紹介">
             <a-textarea
               v-decorator="['description', {
@@ -67,6 +57,7 @@
               v-bind:auto-size="{ minRows: 5 }"
             />
           </a-form-item>
+
           <!-- Button Submit -->
           <a-form-item v-bind:wrapper-col="{ span: 16, offset: 8 }">
             <a-button type="primary" html-type="submit" v-bind:loading="loading">
@@ -89,7 +80,7 @@
           <div v-else>
             <a-icon :type="loading ? 'loading' : 'plus'"/>
             <div class="ant-upload-text">
-              アップロード
+              Upload
             </div>
           </div>
         </a-upload>
@@ -110,7 +101,7 @@
           <div v-else>
             <a-icon :type="loading ? 'loading' : 'plus'"/>
             <div class="ant-upload-text">
-              アップロード
+              Upload
             </div>
           </div>
         </a-upload>
@@ -163,16 +154,6 @@
               }]"
             />
           </a-form-item>
-          <!-- Facebook -->
-          <a-form-item label="ツイッター">
-            <a-input
-              addon-before="https://www.facebook.com/"
-              placeholder="John"
-              v-decorator="['url', {
-                  initialValue: this.getFacebookLink
-              }]"
-            />
-          </a-form-item>
           <a-form-item label="自己紹介">
             <a-textarea
               v-decorator="['description', {
@@ -217,9 +198,9 @@ export default {
     }
   },
   computed: {
-  ...mapState({
-    currentUser: state => state.author.currentUser
-  }),
+    ...mapState({
+      currentUser: state => state.author.currentUser
+    }),
 
     getUserEmail(){
       if (this.currentUser && this.currentUser.email){
@@ -247,13 +228,6 @@ export default {
         return this.currentUser.nickname;
       }else{
         return this.$siteConfig.userEmpty
-      }
-    },
-    getFacebookLink(){
-      if (this.currentUser && this.currentUser.url){
-        return this.currentUser.url.split('.com/')[1];
-      }else{
-        return ''
       }
     },
     fullname() {
@@ -294,16 +268,12 @@ export default {
       this.form.validateFields((err, values) => {
         if (!err) {
           const { first_name, last_name } = this.splitFullName(values.fullname);
-          const url_twitter              = values.url.toLowerCase()
-                                            .replace(/#|,|\?|\/|\+|%|#|"|&|\)|\(|~|>|\|\*|!|\+|`|\||\[|\]|:/g, '')
-                                            .trim()
           const data = {
             file: this.fileUpload.file,
             first_name,
             last_name,
             nickname: values.nickname,
             description: values.description,
-            url:`https://www.facebook.com/${url_twitter}`
           }
           this.loading = true
           this.actUpdateProfile(data)
@@ -328,7 +298,7 @@ export default {
       const isJpgOrPng = file.type === 'image/jpeg' || file.type === 'image/png';
       if (!isJpgOrPng) {
         // this.$message.error('You can only upload JPG file!');
-        notication_error(this,'無効な画像形式（jpeg,png）');
+        notication_error(this,'画像形式が無効です');
         return false;
       }
       const isLt2M = file.size / 1024 / 1024 < 2;
