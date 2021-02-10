@@ -205,7 +205,4 @@ export default {
 .edit-post {
   margin-bottom: 20px;
 }
-.quote-card{
-  margin-bottom: 20px;
-}
 </style>
