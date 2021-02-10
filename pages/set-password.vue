@@ -23,10 +23,8 @@
                 </div>
                 <div class="form-control">
                   <label>新しいパスワード</label>
-                  <i
-                    v-bind:class="togglePassword"
-                    v-on:click="handleShowPassword"
-                  ></i>
+                  <a-icon type="eye" v-on:click="handleShowPassword" v-if="!isShowPassword"/>
+                  <a-icon type="eye-invisible" v-on:click="handleShowPassword" v-else/>
                   <input
                     v-bind:type="typePassword"
                     v-model="new_password"
@@ -35,10 +33,8 @@
                 </div>
                 <div class="form-control">
                   <label>新しいパスワード（確認）</label>
-                  <i
-                    v-bind:class="togglePassword"
-                    v-on:click="handleShowPassword"
-                  ></i>
+                  <a-icon type="eye" v-on:click="handleShowPassword" v-if="!isShowPassword"/>
+                  <a-icon type="eye-invisible" v-on:click="handleShowPassword" v-else/>
                   <input
                     v-bind:type="typePassword"
                     v-model="confirm_new_password"
@@ -81,16 +77,12 @@
 <script>
 import QuoteCard from '~/components/cards/QuoteCard'
 import {mapActions} from 'vuex';
-import antDesignVue from '@/plugins/ant-design-vue';
 import {_switch_code, notication_error, notication_success,getLoadIcon} from '@/helpers/notication';
 export default {
   head() {
     return {
       title: `設定パスワード  | ${this.$siteConfig.siteName}`
     }
-  },
-  beforeCreate() {
-    antDesignVue();
   },
   watchQuery: ['q'],
   validate({query}) {
@@ -175,12 +167,6 @@ export default {
         return 'text';
       }
       return 'password';
-    },
-    togglePassword() {
-      return {
-        'ion-eye': !this.isShowPassword,
-        'ion-eye-disabled': this.isShowPassword
-      }
     },
     getSubTitle(){
       return `${this.$siteConfig.siteName} からコードが届きました。自分のメールをご確認ください`
