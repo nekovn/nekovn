@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="!resource.length">
+    <div v-if="!resource">
       {{ $siteConfig.noPost }}
     </div>
     <presentational-grid
