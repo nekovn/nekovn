@@ -13,7 +13,6 @@
       <p class="comments__section--time">{{ $dayjs(comment.date).fromNow() }}</p>
       <div class="comments__section--text" v-html="comment.content.rendered"></div>
       <p v-if="isParent" @click="handleShowReply" class="comments__section--reply-1">回答</p>
-      <i v-if="isParent" @click="handleShowReply" class="ion-reply  comments__section--reply"></i>
     </a>
   </div>
 </template>
