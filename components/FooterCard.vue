@@ -12,7 +12,7 @@
           :twitterUser="hashtags"
         >
           <a-icon type="twitter" style="font-size: 20px;"/>
-          <span>Twitterを共有する</span>
+          <span>Twitter共有</span>
         </ShareNetwork>
       </div>
       <div class="card-footer-item">
@@ -25,7 +25,7 @@
           :hashtags="hashtags"
         >
           <a-icon type="facebook" style="font-size: 20px;"/>
-          <span>Facebookを共有する</span>
+          <span>Facebook共有</span>
         </ShareNetwork>
       </div>
     </footer>
@@ -46,5 +46,7 @@ export default {
 </script>
 
 <style scoped>
-
+.quote-card{
+  margin-bottom: 20px;
+}
 </style>
