@@ -20,13 +20,8 @@
 </template>
 
 <script>
-import antDesignVue from '@/plugins/ant-design-vue';
-
 export default {
   name: 'SiteFooter',
-  beforeCreate() {
-    antDesignVue();
-  }
 }
 </script>
 
