@@ -28,16 +28,18 @@ export default {
     return {
       title: `${this.$store.state.title} | ${this.$siteConfig.siteName}`,
       meta: [
-        {hid: 'description', name: 'description', content: this.$siteConfig.tagline},
-        {hid: 'og:description', property: 'og:description', content: this.$siteConfig.tagline},
-        {hid: 'og:title', property: 'og:title', content: this.$siteConfig.siteName},
-        {hid: 'og:url', property: 'og:url', content: this.$siteConfig.url},
+        {hid: 'description', name: 'description', content: this.$store.state.subtitle},
+        {hid: 'og:description', property: 'og:description', content: this.$store.state.subtitle},
+        {hid: 'og:title', property: 'og:title', content: this.$store.state.title},
+        {hid: 'og:url', property: 'og:url', content: this.$store.state.url},
         {hid: 'og:site_name', property: 'og:site_name', content: this.$siteConfig.siteName},
         {
           hid: 'og:image',
           property: 'og:image',
-          content: (process.env.URL ? process.env.URL : '') +
-          require(`~/assets${this.$siteConfig.featureImage}`) || 'https://picsum.photos/1800/1807'
+          content: this.$store.state.featureImage
+            ? this.$store.state.featureImage
+            : (process.env.URL ? process.env.URL : '') +
+            require(`~/assets${this.$siteConfig.featureImage}`)
         },
         {name: 'twitter:card', content: 'summary'},
         {name: 'twitter:site', content: '@Twitter'}
