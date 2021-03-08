@@ -9,7 +9,7 @@
           v-on:submit="handleSubmit"
         >
           <!-- Username -->
-          <a-form-item label="ユーザー名">
+          <a-form-item label="Tên đăng nhập">
             <a-input
               v-decorator="['user_name', {
                   initialValue: this.getUserName
@@ -18,7 +18,7 @@
             />
           </a-form-item>
           <!-- Email -->
-          <a-form-item label="メールアドレス">
+          <a-form-item label="Email">
             <a-input
               v-bind:disabled="true"
               v-decorator="['email', {
@@ -28,28 +28,28 @@
           </a-form-item>
 
 
-          <a-form-item label="ネックネーム">
+          <a-form-item label="Biệt dạnh">
             <a-input
               v-decorator="['nickname', {
                   rules: [
-                    { required: true, message: 'ネックネームを入力してください!' }
+                    { required: true, message: 'Vui lòng nhập biệt danh !' }
                   ],
                   initialValue: this.getUserNickName
               }]"
             />
           </a-form-item>
 
-          <a-form-item label="氏名">
+          <a-form-item label="Họ và tên">
             <a-input
               v-decorator="['fullname', {
                   rules: [
-                    { required: true, message: '氏名を入力してください!' }
+                    { required: true, message: 'Vui lòng nhập họ và tên của bạn !' }
                   ],
                   initialValue: this.fullname
               }]"
             />
           </a-form-item>
-          <a-form-item label="自己紹介">
+          <a-form-item label="Giới thiệu">
             <a-textarea
               v-decorator="['description', {
                 initialValue: this.getUserDescription
@@ -61,13 +61,13 @@
           <!-- Button Submit -->
           <a-form-item v-bind:wrapper-col="{ span: 16, offset: 8 }">
             <a-button type="primary" html-type="submit" v-bind:loading="loading">
-              保存
+              Đăng bài
             </a-button>
           </a-form-item>
         </a-form>
       </a-col>
       <a-col v-bind:md="8">
-        <p>アバターをアップロードする</p>
+        <p>Tải ảnh đại diện</p>
         <a-upload
           name="avatar"
           list-type="picture-card"
@@ -80,7 +80,7 @@
           <div v-else>
             <a-icon :type="loading ? 'loading' : 'plus'"/>
             <div class="ant-upload-text">
-              Upload
+              Tải lên
             </div>
           </div>
         </a-upload>
@@ -88,7 +88,7 @@
     </a-row>
     <a-row class="style-sm" v-bind:gutter="30">
       <a-col v-bind:sm="12" v-bind:md="8">
-        <p>アバターをアップロードする</p>
+        <p>Tải ảnh đại diện</p>
         <a-upload
           name="avatar"
           list-type="picture-card"
@@ -101,7 +101,7 @@
           <div v-else>
             <a-icon :type="loading ? 'loading' : 'plus'"/>
             <div class="ant-upload-text">
-              Upload
+              Tải lên
             </div>
           </div>
         </a-upload>
@@ -114,7 +114,7 @@
           v-on:submit="handleSubmit"
         >
           <!-- Username -->
-          <a-form-item label="ユーザー名">
+          <a-form-item label="Tên đăng nhập">
             <a-input
               v-decorator="['user_name', {
                   initialValue: this.getUserName
@@ -123,7 +123,7 @@
             />
           </a-form-item>
           <!-- Email -->
-          <a-form-item label="メールアドレス">
+          <a-form-item label="Email">
             <a-input
               v-bind:disabled="true"
               v-decorator="['email', {
@@ -133,28 +133,28 @@
           </a-form-item>
 
 
-          <a-form-item label="ネックネーム">
+          <a-form-item label="Biệt danh">
             <a-input
               v-decorator="['nickname', {
                   rules: [
-                    { required: true, message: 'ネックネームを入力してください!' }
+                    { required: true, message: 'Vui lòng nhập biệt danh của bạn !' }
                   ],
                   initialValue: this.getUserNickName
               }]"
             />
           </a-form-item>
 
-          <a-form-item label="氏名">
+          <a-form-item label="Họ và tên">
             <a-input
               v-decorator="['fullname', {
                   rules: [
-                    { required: true, message: '氏名を入力してください!' }
+                    { required: true, message: 'Vui lòng nhập họ và tên của bạn !' }
                   ],
                   initialValue: this.fullname
               }]"
             />
           </a-form-item>
-          <a-form-item label="自己紹介">
+          <a-form-item label="Giới thiệu">
             <a-textarea
               v-decorator="['description', {
                 initialValue: this.getUserDescription
@@ -166,7 +166,7 @@
           <!-- Button Submit -->
           <a-form-item v-bind:wrapper-col="{ span: 16, offset: 8 }">
             <a-button type="primary" html-type="submit" v-bind:loading="loading">
-              保存
+              Lưu thông tin
             </a-button>
           </a-form-item>
         </a-form>
@@ -184,7 +184,7 @@ export default {
   watchQuery: ['page'],
   head() {
     return {
-      title: `プロフィール | ${this.$siteConfig.siteName}`
+      title: `Thông tin | ${this.$siteConfig.siteName}`
     }
   },
   data() {
@@ -283,7 +283,7 @@ export default {
                   file: null,
                   base64: ''
                 }
-                notication_success (this,'ユーザー情報が正常に更新されました')
+                notication_success (this,'Đã thay đổi thông tin thành công')
                 this.loading = false;
               } else {
                 notication_error(this,res.error);
@@ -298,12 +298,12 @@ export default {
       const isJpgOrPng = file.type === 'image/jpeg' || file.type === 'image/png';
       if (!isJpgOrPng) {
         // this.$message.error('You can only upload JPG file!');
-        notication_error(this,'画像形式が無効です');
+        notication_error(this,'Định dạng ảnh không đúng.Vui lòng tải file (jpg,png)');
         return false;
       }
       const isLt2M = file.size / 1024 / 1024 < 2;
       if (!isLt2M) {
-        notication_error(this,'画像サイズは2MB未満である必要があります');
+        notication_error(this,'Kích thước file phải nhỏ hơn 2MB');
         return false;
       }
       return true;

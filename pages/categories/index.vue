@@ -14,7 +14,7 @@ import {getLoadIcon} from '@/helpers/notication';
 export default {
   head() {
     return {
-      title: `カテゴリ | ${this.$siteConfig.siteName}`
+      title: `Danh mục | ${this.$siteConfig.siteName}`
     }
   },
   fetchOnServer: false,
@@ -35,7 +35,7 @@ export default {
          'mainMenuItems'
     ]),
     getSubTitle(){
-      return `ここにすべての${this.$siteConfig.siteName}の投稿カテゴリー`
+      return `Toàn bộ danh mục bài viết của ${this.$siteConfig.siteName} ở đây`
     }
   }
 }

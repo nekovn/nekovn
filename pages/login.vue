@@ -1,7 +1,7 @@
 <template>
   <div id="about-page" class="page-wrapper about-page content-page">
     <site-hero
-      title="ログイン"
+      title="Đăng nhập"
       :subtitle="getSubTitle"
       image="https://picsum.photos/1800/1802"
     ></site-hero>
@@ -9,33 +9,33 @@
       <template v-slot:default>
         <div class="tile is-parent is-10">
           <article class="tile is-child box">
-            <h1 class="form-title text-center">ログイン</h1>
+            <h1 class="form-title text-center">Đăng nhập</h1>
             <div class="form-login-register">
               <form action="">
                 <div class="form-control">
-                  <label>ユーザー名</label>
+                  <label>Tên đăng nhập</label>
                   <input
                     v-model="username"
                     type="text"
-                    placeholder="ユーザー名を入力してください..."
+                    placeholder="Vui lòng nhập tên đăng nhập..."
                   />
                 </div>
                 <div class="form-control">
-                  <label>パスワード</label>
+                  <label>Mật khẩu</label>
                   <a-icon type="eye" v-on:click="handleShowPassword" v-if="!isShowPassword"/>
                   <a-icon type="eye-invisible" v-on:click="handleShowPassword" v-else/>
                   <!-- <i class="toggle-password ion-eye-disabled"></i> -->
                   <input
                     v-model="password"
                     v-bind:type="typePassword"
-                    placeholder="パスワードを入力してください ..."
+                    placeholder="Vui lòng nhập mật khẩu ..."
                   />
                 </div>
                 <div class="d-flex tcl-jc-between tcl-ais-center" @click="handleUpdate">
                   <a-button class="login-button" type="primary" v-on:click.native="handleSubmit" html-type="submit" v-bind:loading="isLoading">
-                    ログイン
+                    Đăng nhập
                   </a-button>
-                  <nuxt-link class="reset-password" to="/reset-password" >パスワードをお忘れですか?</nuxt-link>
+                  <nuxt-link class="reset-password" to="/reset-password" >Quên mật khẩu?</nuxt-link>
                 </div>
               </form>
             </div>
@@ -46,7 +46,7 @@
       <template v-slot:sidebar>
         <div  @click="handleUpdate">
           <h3 class="subtitle is-4">
-            速報・新着
+            Bài viết mới nhất
           </h3>
           <!-- Latest Posts -->
           <posts-grid :per-row="1" :number="2"/>
@@ -62,7 +62,7 @@ import {notication_error,notication_success,getLoadIcon} from '@/helpers/noticat
 export default {
   head() {
     return {
-      title: `ログイン | ${this.$siteConfig.siteName}`
+      title: `Đăng nhập | ${this.$siteConfig.siteName}`
     }
   },
   //trùng với tên file middleware/notAuthenticated
@@ -82,7 +82,7 @@ export default {
   },
   computed: {
     getSubTitle(){
-      return `${this.$siteConfig.siteName}と戻ったことを歓迎する`
+      return `Chào mừng bạn đã quay trở lại với ${this.$siteConfig.siteName}`
     },
     typePassword() {
       if (this.isShowPassword) {
@@ -112,15 +112,15 @@ export default {
             .then(res => {
               if (res.ok) {
                 this.isLoading = false;
-                notication_success(this, 'ログインしました')
+                notication_success(this, 'Đăng nhập thành công')
                 this.$router.push('/'); // router đẩy nó sang trang home
               } else {
-                notication_error(this, 'ユーザー名かパスワードが無効 !');
+                notication_error(this, 'Vui lòng kiểm tra lại mật khẩu hoặc tên đăng nhập !');
                 this.isLoading = false;
               }
             })
       } else {
-        notication_error(this, 'アカウントを入力してください !');
+        notication_error(this, 'Vui lòng nhập tài khoảng !');
         this.isLoading = false;
       }
     },

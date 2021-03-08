@@ -27,42 +27,42 @@
           <a-menu-item key="/dashboard" @click="handleUpdate">
             <nuxt-link to="/dashboard">
               <a-icon type="user" />
-              <span>プロフィール</span>
+              <span>Thông tin</span>
             </nuxt-link>
           </a-menu-item>
           <a-menu-item key="/dashboard/password" @click="handleUpdate">
             <nuxt-link to="/dashboard/password">
               <a-icon type="setting" />
-              <span>パスワード変更</span>
+              <span>Thay đổi mật khẩu</span>
             </nuxt-link>
           </a-menu-item>
           <a-menu-item key="/dashboard/article" @click="handleUpdate">
             <nuxt-link to="/dashboard/article">
               <a-icon type="form" />
-              <span>投稿</span>
+              <span>Đăng bài</span>
             </nuxt-link>
           </a-menu-item>
           <a-menu-item key="/dashboard/list-article" @click="handleUpdate">
             <nuxt-link to="/dashboard/list-article">
               <a-icon type="ordered-list" />
-              <span>リスト</span>
+              <span>Danh sách</span>
             </nuxt-link>
           </a-menu-item>
           <a-menu-item key="/dashboard/pending-article" @click="handleUpdate">
             <nuxt-link to="/dashboard/pending-article">
               <a-icon type="alert" />
-              <span>保留中</span>
+              <span>Thư nháp</span>
             </nuxt-link>
           </a-menu-item>
           <a-menu-item key="/dashboard/mailbox" @click="handleUpdate">
             <nuxt-link to="/dashboard/mailbox">
               <a-icon type="mail"/>
-              <span>メールボックス</span>
+              <span>Hộp thư</span>
             </nuxt-link>
           </a-menu-item>
           <a-menu-item v-on:click="handleLogout" >
               <a-icon type="logout" />
-              <span>ログアウト</span>
+              <span>Đăng xuất</span>
           </a-menu-item>
         </a-menu>
       </a-layout-sider>
@@ -78,7 +78,7 @@
         </a-layout-content>
         <a-layout-footer style="textAlign: center">
           {{ $siteConfig.siteName }} &copy; {{ new Date().getFullYear() }} -
-          Inc. All Rights Reserved. 無断転載禁止
+          Inc. All Rights Reserved.
         </a-layout-footer>
       </a-layout>
     </a-layout>

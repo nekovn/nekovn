@@ -24,35 +24,35 @@
       <li v-if="isAdmin || isEditor || isAuthor" :class="{'navbar-footer':footerClass,'navbar-item':navBarClass}" @click="handleUpdate">
         <a v-if="isAdmin" href="/blogs/phamcuong/" target="_blank">
           <a-icon type="crown"/>
-          管理者</a>
+          Admin</a>
         <a v-if="isEditor" href="/blogs/phamcuong/" target="_blank">
           <a-icon type="crown"/>
-          編集者</a>
+          Editor</a>
         <a v-if="isAuthor" href="/blogs/phamcuong/" target="_blank">
           <a-icon type="crown"/>
-          著者</a>
+          Tác giả</a>
       </li>
       <li v-if="isLogin" :class="{'navbar-footer':footerClass,'navbar-item':navBarClass}" @click="handleUpdate">
         <nuxt-link to="/dashboard">
           <a-icon type="tool"/>
-          設定
+          Cài đặt
         </nuxt-link>
       </li>
       <li v-if="isLogin" :class="{'navbar-footer':footerClass,'navbar-item':navBarClass}" @click="handleLogout">
         <a>
           <a-icon type="logout"/>
-          ログアウト</a>
+          Đăng xuất</a>
       </li>
       <li v-if="!isLogin" :class="{'navbar-footer':footerClass,'navbar-item':navBarClass}" @click="handleUpdate">
         <nuxt-link to="/login">
           <a-icon type="login"/>
-          ログイン
+          Đăng nhập
         </nuxt-link>
       </li>
       <li v-if="!isLogin" :class="{'navbar-footer':footerClass,'navbar-item':navBarClass}" @click="handleUpdate">
         <nuxt-link to="/register">
           <a-icon type="edit"/>
-          登録
+          Đăng ký
         </nuxt-link>
       </li>
       <li v-if="menuClass" class="navbar-item site-search-wrapper">

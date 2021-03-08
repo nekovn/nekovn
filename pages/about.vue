@@ -1,7 +1,7 @@
 <template>
   <div id="about-page" class="page-wrapper about-page content-page">
     <site-hero
-      title="免責事項"
+      title="Về NekoVn"
       :subtitle="getSubTitle"
       :image="getImage"
     ></site-hero>
@@ -15,7 +15,7 @@
       <template v-slot:sidebar>
         <div  @click="handleUpdate">
           <h3 class="subtitle is-4">
-            速報・新着
+            Bài viết mới nhất
           </h3>
           <!-- Latest Posts -->
           <posts-grid :per-row="1" :number="2"/>
@@ -32,7 +32,7 @@ import { mapActions, mapGetters} from "vuex";
 export default {
   head() {
     return {
-      title: `免責事項 | ${this.$siteConfig.siteName}`,
+      title: `Về NekoVn | ${this.$siteConfig.siteName}`,
     }
   },
   components: {QuoteCard},
@@ -70,7 +70,7 @@ export default {
       if(this.page && this.page.title){
         return this.page.title.rendered
       }else{
-        return '利用者は注意点をお読みいただき、ご了解いただいた上でご利用ください'
+        return 'ĐIỀU KHOẢN SỬ DỤNG WEBSITE.VUI LÒNG ĐỌC KỸ CHÚNG'
       }
     },
     getImage(){

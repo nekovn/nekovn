@@ -6,10 +6,10 @@
         v-if="getAuthor && $siteConfig.posts.displayAuthor"
         class="author-wrapper"
       >
-        <strong>著者: </strong><nuxt-link :to="authorLink">{{ getAuthor }}</nuxt-link>
+        <strong>Tác giả: </strong><nuxt-link :to="authorLink">{{ getAuthor }}</nuxt-link>
       </span>
       <span v-if="date" class="date-wrapper">
-        <strong>投稿日:</strong> {{ date }}
+        <strong>Ngày đăng:</strong> {{ date }}
       </span>
     </site-hero>
     <main-section :one-column-constrained="true">
@@ -19,7 +19,7 @@
           <footer-card :url="getLink" :title="getTitle" :description="getDes" :quote="getTitle" :hashtags="$siteConfig.siteName"/>
           <div class="other-posts" @click="handleUpdate">
             <h6 class="subtitle is-size-4">
-              関連記事
+              Bài viết liên quan
             </h6>
             <!-- Related Posts -->
             <posts-grid v-if="post"/>

@@ -35,7 +35,7 @@
         </div>
 
         <li v-else>
-          見つかりませんでした。
+          Không tìm kiếm được kết quả
           <font-awesome-icon
             icon="times"
             @click="toggleSearchBar()"

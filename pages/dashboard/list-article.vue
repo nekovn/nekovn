@@ -25,10 +25,10 @@
           style="width: 90px; margin-right: 8px"
           @click="() => handleSearch(selectedKeys, confirm, column.dataIndex)"
         >
-          検索
+          Tìm kiếm
         </a-button>
         <a-button size="small" style="width: 90px" @click="() => handleReset(clearFilters)">
-          削除
+          Xóa
         </a-button>
       </div>
       <a-icon
@@ -64,21 +64,21 @@
       <template slot="operation" slot-scope="text, record">
         <a-popconfirm
           v-if="dataSource.length"
-          title="削除してもよろしいですか？"
+          title="Bạn có muốn xóa bài viết ？"
           @confirm="() => onDelete(record.key)"
         >
           <a href="javascript:;"><a-icon type="delete" /> | </a>
         </a-popconfirm>
         <a-popconfirm
           v-if="dataSource.length"
-          title="修正してもよろしいですか？"
+          title="Bạn muốn sửa bài viết ？"
           @confirm="() => onEdit(record.key)"
         >
           <a href="javascript:;"><a-icon type="edit" /> | </a>
         </a-popconfirm>
         <a-popconfirm
           v-if="dataSource.length"
-          title="ビューでよろしいですか？"
+          title="Bạn muốn xem bài viết ？"
           @confirm="() => showDrawer(record.key)"
         >
           <a href="javascript:;"><a-icon type="eye" /></a>
@@ -108,7 +108,7 @@ export default {
     return {
       visible: false,
       display:'',
-      headName:'リスト',
+      headName:'Danh sách',
       title:'',
       id:'',
       content:'',
@@ -120,13 +120,13 @@ export default {
       ],
       columns: [
         {
-          title: '番号',
+          title: 'STT',
           dataIndex: 'stt',
           width: 60,
           fixed: 'left'
         },
         {
-          title: 'タイトル',
+          title: 'Tiêu đề',
           dataIndex: 'name',
           width: 300,
           fixed: 'left',
@@ -151,7 +151,7 @@ export default {
           },
         },
         {
-          title: '内容',
+          title: 'Nội dung',
           dataIndex: 'content',
           width: 400,
           sorter: (a, b) => a.content.length - b.content.length,
@@ -175,7 +175,7 @@ export default {
           },
         },
         {
-          title: 'カテゴリ',
+          title: 'Danh mục',
           dataIndex: 'categories',
           width: 150,
           sorter: (a, b) => a.categories.length - b.categories.length,
@@ -199,7 +199,7 @@ export default {
           },
         },
         {
-          title: 'コメント',
+          title: 'Comment',
           dataIndex: 'comment',
           width: 150,
           defaultSortOrder: 'descend',
@@ -223,7 +223,7 @@ export default {
           },
         },
         {
-          title: 'ビュー',
+          title: 'Lượt xem',
           dataIndex: 'view',
           width: 130,
           defaultSortOrder: 'descend',
@@ -247,7 +247,7 @@ export default {
           },
         },
         {
-          title: '設定',
+          title: 'Tùy chọn',
           dataIndex: 'operation',
           fixed: 'right',
           width: 100,
@@ -274,7 +274,7 @@ export default {
       if(this.dataSource){
         this.visible = true;
         this.display = 'view';
-        this.headName = 'ビュー';
+        this.headName = 'Xem bài viết';
         this.dataSource.map((obj, index) => {
           if (obj.key === key) {
             this.title   = obj.name
@@ -285,7 +285,7 @@ export default {
     },
     onClose() {
       this.visible = false;
-      this.headName = 'リスト';
+      this.headName = 'Danh sách';
     },
     ...mapActions({
       deletePost: 'author/actDeletePost',
@@ -297,7 +297,7 @@ export default {
         .then(res => {
           if (res.ok) {
             // Thanh cong
-            notication_success(this, '投稿が正常に削除されました')
+            notication_success(this, 'Bài viết đã xóa thành công')
             const dataSource = [...this.dataSource];
             this.dataSource = dataSource.filter(item => item.key !== key);
           } else {
@@ -309,7 +309,7 @@ export default {
       if(this.dataSource){
         this.visible  = true;
         this.display  = 'edit';
-        this.headName = '編集';
+        this.headName = 'Chỉnh sửa';
         this.dataSource.map((obj, index) => {
           if (obj.key === key) {
             this.title      = obj.name
@@ -347,9 +347,9 @@ export default {
           return {
             ['stt']       : index + 1,
             ['key']       : obj.id,
-            ['comment']   : obj.comment_count + ' 回',
+            ['comment']   : obj.comment_count + ' lần',
             ['name']      : obj.title.rendered,
-            ['view']      : obj.view_count+ ' 回',
+            ['view']      : obj.view_count+ ' lần',
             ['categories']: arrCategories,
             ['content']   : subContent,
             ['image']     : obj.featured_media_url,

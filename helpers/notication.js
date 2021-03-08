@@ -1,14 +1,14 @@
 //get  error notication
 function notication_error (obj,description) {
   obj.$notification.error({
-    message: 'エラーが発生しました',
+    message: 'Có lỗi xảy ra',
     description: description,
   });
 }
 //get  success notication
 function notication_success (obj,description) {
   obj.$notification.success({
-    message: '完成',
+    message: 'Chúc mừng',
     description: description,
   });
 }
@@ -24,28 +24,28 @@ function getLoadIcon(obj,time) {
 function  _switch_code(obj,message){
   switch (message) {
     case "You must provide a code.":
-      notication_error(obj,'メールで送信されたコードを入力してください !');
+      notication_error(obj,'Vui lòng hãy nhập mã code đã gửi trong email của bạn!');
       break;
     case "The reset code provided is not valid. You have 2 attempts remaining.":
-      notication_error(obj,'指定されたコードは無効です。 残り2回の試行があります !');
+      notication_error(obj,'Mã code được cung cấp không hợp lệ. Bạn còn 2 lần thử !');
       break;
     case "The reset code provided is not valid. You have 1 attempts remaining.":
-      notication_error(obj,'指定されたコードは無効です。 残り1回の試行があります !');
+      notication_error(obj,'Mã code được cung cấp không hợp lệ. Bạn còn 1 lần thử !');
       break;
     case "You must request a password reset code before you try to set a new password.":
-      notication_error(obj,'パスワードをリセットする前に、コードの再送信をリクエストする必要があります !');
+      notication_error(obj,'Bạn phải yêu cầu gửi lại mã code trước khi đặt lại mật khẩu mới !');
       obj.$router.push('/reset-password')
       break;
     case "The reset code provided is not valid. You have used the maximum number of attempts allowed. You must request a new code.":
-      notication_error(obj,'指定されたコードは無効です。 許可された回数を超えて使用しました。 新しいコードをリクエストする必要があります !');
+      notication_error(obj,'Mã code được cung cấp không hợp lệ. Bạn đã sử dụng quá số lần thử được phép. Bạn phải yêu cầu một mã mới !');
       obj.$router.push('/reset-password')
       break;
     case "Unauthorized":
-      notication_error(obj,'このページにアクセスする権限がありません !');
+      notication_error(obj,'Bạn không có quyền truy cập vào trang này !');
       obj.$router.push('/')
       break;
     default:
-      notication_error(obj,'取得したパスワードが失敗しました！ メール情報をご確認ください !');
+      notication_error(obj,'Lấy lại mật khẩu thất bại ! Vui lòng kiểm tra lại thông tin email');
       obj.$router.push('/reset-password')
       break;
 
@@ -55,13 +55,13 @@ function  _switch_code(obj,message){
 function _switch_comment(obj,error){
   switch (error) {
     case "comment_duplicate":
-      notication_error(obj,'コメントが重複しています。もう一度確認してください !');
+      notication_error(obj,'Bình luận bị trùng,vui lòng kiểm tra lại!');
       break;
     case "comment_flood":
-      notication_error(obj,'スパム禁止、もう一度コメントしてください !');
+      notication_error(obj,'Nghi vấn spam,vui lòng bình luận lại!');
       break;
     default:
-      notication_error(obj,'コメントをもう一度確認してください !');
+      notication_error(obj,'Vui lòng kiểm tra lại bình luận!');
       break;
   }
 }
@@ -69,71 +69,71 @@ function _switch_comment(obj,error){
 function _switch (obj,error){
   switch (error) {
     case "rest_user_invalid_password":
-      notication_error(obj,'パスワードは1文字以上である必要があります !');
+      notication_error(obj,'Mật khẩu phải có ít nhất 1 ký tự số !');
       break;
     case "rest_user_invalid_password_empty":
-      notication_error(obj,'パスワードを入力してください !');
+      notication_error(obj,'Mật khẩu không được rỗng !');
       break;
     case "rest_user_invalid_password_flower":
-      notication_error(obj,'パスワードには少なくとも1つの大文字が含まれている必要があります !');
+      notication_error(obj,'Mật khẩu phải có ít nhất 1 ký tự in hoa !');
       break;
     case "rest_user_invalid_password_number":
-      notication_error(obj,'パスワードには少なくとも1つの数字が含まれている必要があります !');
+      notication_error(obj,'Mật khẩu phải có ít nhất 1 ký tự số !');
       break;
     case "rest_user_invalid_password_backslash":
-      notication_error(obj,"パスワードに'\\'を含めることはできません !");
+      notication_error(obj,"Mật khẩu không được có '\\' !");
       break;
     case "rest_user_invalid_password_space":
-      notication_error(obj,'パスワードにスペースができません !');
+      notication_error(obj,'Mật khẩu không được có khoảng trắng !');
       break;
     case "existing_user_login":
-      notication_error(obj,'すでに使用中のユーザー名 !');
+      notication_error(obj,'Tên đăng nhập đã có người sử dụng !');
       break;
     case "rest_user_invalid_username":
-      notication_error(obj,'ユーザー名ができません !');
+      notication_error(obj,'Tên đăng nhập không phù hợp !');
       break;
     case "rest_user_invalid_empty":
-      notication_error(obj,'ユーザー名にスペースを含めることはできません !');
+      notication_error(obj,'Tên đăng nhập không được có khoảng trắng !');
       break;
     case "rest_user_invalid_dots":
-      notication_error(obj,"ユーザー名に'.'を含めることはできません !");
+      notication_error(obj,"Tên đăng nhập không được có dấu '.' !");
       break;
     case "rest_user_cannot_register":
-      notication_error(obj,'申し訳ありませんが、現在アカウントを登録することはできません !');
+      notication_error(obj,'Xin lỗi hiện tại bạn không thể đăng ký tài khoảng !');
       break;
     case "user_login_too_long":
-      notication_error(obj,'ユーザー名が長すぎます !');
+      notication_error(obj,'Tên đăng nhập quá dài !');
       break;
     case "empty_user_login":
-      notication_error(obj,'ユーザー名を空にすることはできません !');
+      notication_error(obj,'Tên đăng nhập không được rỗng !');
       break;
     case "invalid_user_id":
-      notication_error(obj,'ユーザー名は有効ではありません !');
+      notication_error(obj,'Tên đăng nhập không hợp lệ !');
       break;
     case "invalid_username":
-      notication_error(obj,'パスワードが一致しません　!');
+      notication_error(obj,'Mật khẩu nhập lại không đúng !');
       break;
     case "user_nicename_too_long":
-      notication_error(obj,'ニックネームが長すぎる !');
+      notication_error(obj,'Tên biệt danh quá dài !');
       break;
     case "existing_user_email":
-      notication_error(obj,'メールは既に使用されています !');
+      notication_error(obj,'Email đã có người sử dụng !');
       break;
     case "no_spam":
-      notication_error(obj,'スパム禁止 !');
+      notication_error(obj,'Mật khẩu nhập lại không đúng !');
       break;
     case "rest_invalid_param":
-      notication_error(obj,'あなたの情報を入力してください!');
+      notication_error(obj,'Vui lòng hãy nhập thông tin !');
       break;
     case "rest_user_invalid_password_short":
-      notication_error(obj,'パスワードは、文字と数字を含めて3〜18文字の長さである必要があります !');
+      notication_error(obj,'Mật khẩu phải dài từ 3 đến 18 ký tự gồm chữ và số !');
       break;
     case "jwt_invalid":
-      notication_error(obj,'このページにアクセスする権限がありません !');
+      notication_error(obj,'Bạn không có quyền truy cập vào trang này !');
       obj.$router.push('/')
       break;
     default:
-      notication_error(obj,'あなたの情報を確認してください');
+      notication_error(obj,'Vui lòng kiểm tra lại thông tin');
       break;
 
   }

@@ -14,7 +14,7 @@
             <div v-else>
               <a-icon :type="loading ? 'loading' : 'plus'"/>
               <div class="ant-upload-text">
-                アップロード
+                Tải lên
               </div>
             </div>
           </a-upload>
@@ -33,12 +33,12 @@
               placeholder="タイトル"
               v-decorator="['title', {
                   rules: [
-                    { required: true, message: 'タイトルを入力してください !' },
-                    { whitespace: true, message: 'タイトルにスペースを含めることはできません !' },
-                    { max: 100 , message: 'タイトルは最大100文字である必要があります !' },
-                    { min: 10  , message: 'タイトルは10文字以上である必要があります !' },
-                    { type: 'string', message: 'タイトルはテキストである必要があります !' },
-                    { pattern:new RegExp ('[^!@#$%^)(&*[_|+=?;,.<>]$'), message: 'タイトル特別な文字はありません !'},
+                    { required: true, message: 'Vui lòng nhập tiêu đề bài viết !' },
+                    { whitespace: true, message: 'Tiêu đề không được có khoảng trắng !' },
+                    { max: 100 , message: 'Tiêu đề có tối đa trong 100 ký tự !' },
+                    { min: 10  , message: 'Tiêu đề phải có ít nhất 10 ký tự !' },
+                    { type: 'string', message: 'Tiêu đề phải là chữ cái !' },
+                    { pattern:new RegExp ('[^!@#$%^)(&*[_|+=?;,.<>]$'), message: 'Tiêu đề không được có các ký tự đặc biệt !'},
                   ],
                   initialValue: getTitle,
               }]"
@@ -52,7 +52,7 @@
               style="width: 100%"
               v-decorator="[
           'select',
-          { rules: [{ required: true, message: 'カテゴリを選択してください !' }] },
+          { rules: [{ required: true, message: 'Vui lòng chọn danh mục bài viết !' }] },
         ]"
               placeholder="カテゴリ"
             >
@@ -66,7 +66,7 @@
           <!-- Button Submit -->
           <a-form-item v-bind:wrapper-col="{ span: 16, offset: 8 }" class="button-upload" >
             <a-button type="primary" html-type="submit" v-bind:loading="loading" >
-              投稿
+              Đăng bài
             </a-button>
           </a-form-item>
         </a-form>
@@ -192,17 +192,17 @@ export default {
         if (!err) {
           this.loading = true;
           if(!this.validateContent(this.data)){
-            notication_error(this,'コンテンツは100文字を超える必要があります !');
+            notication_error(this,'Nội dung bài viết phải lớn hơn 100 ký tự !');
             this.loading = false;
             return;
           }
           if (!this.getThumbnail) {
-            notication_error(this, '記事のアバターをアップロードしてください !');
+            notication_error(this, 'Vui lòng đăng ảnh đại diện cho bài viết !');
             this.loading = false;
             return;
           }
           if (!this.data) {
-            notication_error(this, '記事の内容を入力してください !');
+            notication_error(this, 'Vui lòng nhập nội dung bài viết !');
             this.loading = false;
             return;
           }
@@ -227,11 +227,11 @@ export default {
                     base64: ''
                   }
                   this.data = ''
-                  notication_success(this, '記事が正常に更新されました')
+                  notication_success(this, 'Bài viết được đăng thành công')
                   this.loading = false;
                   this.$router.push('/dashboard/list-article')
                 } else {
-                  notication_error(this, 'もう一度記事をチェックしてください !');
+                  notication_error(this, 'Vui lòng kiểm tra lại bài viết !');
                   this.loading = false;
                 }
               })
@@ -254,18 +254,18 @@ export default {
                     base64: ''
                   }
                   this.data = ''
-                  notication_success(this, '記事が正常に更新されました')
+                  notication_success(this, 'Bài viết được đăng thành công')
                   this.loading = false;
                   this.$router.push('/dashboard/article')
                 } else {
-                  notication_error(this, 'もう一度記事をチェックしてください !');
+                  notication_error(this, 'Vui lòng kiểm tra lại bài viết !');
                   this.loading = false;
                 }
               })
           }
 
         } else {
-          notication_error(this, 'もう一度記事をチェックしてください !');
+          notication_error(this, 'Vui lòng kiểm tra lại bài viết !');
           this.loading = false;
         }
       });
@@ -274,12 +274,12 @@ export default {
       const isJpgOrPng = file.type === 'image/jpeg' || file.type === 'image/png';
       if (!isJpgOrPng) {
         // this.$message.error('You can only upload JPG file!');
-        notication_error(this, '無効な画像形式（jpeg,png）');
+        notication_error(this, 'Định dạng hình ảnh không phù hợp（jpeg,png）');
         return false;
       }
       const isLt2M = file.size / 1024 / 1024 < 2;
       if (!isLt2M) {
-        notication_error(this, '画像サイズは2MB未満である必要があります');
+        notication_error(this, 'Định dạng hình ảnh phải nhỏ hơn 2MB');
         return false;
       }
       return true;

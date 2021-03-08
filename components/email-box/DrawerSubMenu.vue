@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 style="text-align: center">メニュー</h1>
+    <h1 style="text-align: center">Menu</h1>
     <a-row>
       <a-col :span="24">
         <div>

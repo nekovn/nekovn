@@ -5,7 +5,7 @@
       class="button is-fullwidth is-outlined is-large"
       @click="handleUpdate"
     >
-      もっと読み込む
+      Xem thêm
     </a>
     <!-- Post Detail Comments -->
     <PostComments v-if="$siteConfig.disqus.siteShortName &&

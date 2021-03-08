@@ -55,7 +55,7 @@ let visualchars = null;
 let lightgray = null;
 if (process.client) {
   tinymce = require('tinymce/tinymce');
-  langs = require('tinymce-i18n/langs/ja.js');
+  langs = require('tinymce-i18n/langs/vi_VN.js');
   theme = require('tinymce/themes/modern/theme');
   advlist = require('tinymce/plugins/advlist');
   wordcount = require('tinymce/plugins/wordcount');

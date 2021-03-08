@@ -12,7 +12,7 @@
           :twitterUser="hashtags"
         >
           <a-icon type="twitter" style="font-size: 20px;"/>
-          <span>Twitter共有</span>
+          <span>Share Twitter</span>
         </ShareNetwork>
       </div>
       <div class="card-footer-item">
@@ -25,7 +25,7 @@
           :hashtags="hashtags"
         >
           <a-icon type="facebook" style="font-size: 20px;"/>
-          <span>Facebook共有</span>
+          <span>Share Facebook</span>
         </ShareNetwork>
       </div>
     </footer>

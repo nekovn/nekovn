@@ -5,9 +5,9 @@
   >
     <!-- Name -->
     <div class="field">
-      <label class="label is-medium">氏名</label>
+      <label class="label is-medium">Họ và tên</label>
       <div class="control has-icons-left">
-        <input class="input is-medium" type="text" placeholder="山田　太郎" v-model="fullname"/>
+        <input class="input is-medium" type="text" placeholder="Nguyễn Văn A" v-model="fullname"/>
         <span class="icon is-small is-left">
           <font-awesome-icon icon="user"/>
         </span>
@@ -15,7 +15,7 @@
     </div>
     <!-- Email -->
     <div class="field">
-      <label class="label is-medium">メールアドレス</label>
+      <label class="label is-medium">Email</label>
       <div class="control has-icons-left">
         <input class="input is-medium" type="email" placeholder="you@email.com" v-model="email"/>
         <span class="icon is-small is-left">
@@ -25,9 +25,9 @@
     </div>
     <!-- Subject -->
     <div class="field">
-      <label class="label is-medium">タイトル</label>
+      <label class="label is-medium">Tiêu đề</label>
       <div class="control has-icons-left">
-        <input class="input is-medium" type="text" placeholder="聞きたいタイトル" v-model="title"/>
+        <input class="input is-medium" type="text" placeholder="Tiêu đề muốn hỏi" v-model="title"/>
         <span class="icon is-small is-left">
           <font-awesome-icon icon="briefcase"/>
         </span>
@@ -35,15 +35,15 @@
     </div>
     <!-- Message -->
     <div class="field">
-      <label class="label is-medium">お問い合わせ内容</label>
+      <label class="label is-medium">Nội dung</label>
       <div class="control">
-        <textarea class="textarea" placeholder="コメント、リクエストなどの詳細な説明" rows="8"
+        <textarea class="textarea" placeholder="Nhập thắc mắc , ý kiến ,góp ý v.. của bạn" rows="8"
                   v-model="description"></textarea>
       </div>
     </div>
     <div class="control">
       <a-button type="primary" html-type="submit" v-bind:loading="loading">
-        送信
+        Gửi
       </a-button>
     </div>
   </a-form>
@@ -71,7 +71,7 @@ export default {
       e.preventDefault();
       // 1. Format your body response
       if (!this.fullname || !this.email || !this.description || !this.title) {
-        notication_error(this, 'あなたの情報を入力してください !');
+        notication_error(this, 'Vui lòng nhập đầy đủ thông tin !');
         return true;
       }
       const data = {
@@ -88,7 +88,7 @@ export default {
             // Thanh cong
             switch (res.message) {
               case "success":
-                notication_success(this, "メッセージを送信しました。 間もなく連絡たします")
+                notication_success(this, "Tin nhắn của bạn đã được gưi.Chúng tôi sẽ liên lạc cho bạn trong vòng 24h")
                 this.fullname='';
                 this.email='';
                 this.title='';

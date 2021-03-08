@@ -9,20 +9,24 @@
  */
 export default {
   siteName: 'NekoVn',
-  introduce: 'ウェブサイトについて',
-  tagline: '日本とベトナムとの相互交流、観光、文化などや最新情報を写真、画像、料理でまとめてお届けします',
+  introduce: 'Giới thiệu',
+  tagline: 'Chúng tôi sẽ cung cấp những thông tin mới nhất về du lịch,ngôn ngữ, văn hóa,và các món ăn... Nhật Bản.Giao lưu văn hóa giữa hai nước Việt Nam và Nhật Bản',
   url:'https://neko-vn.jp',
   email:'nekovn2811@gmail.com',
   address:'東京都豊島区西池袋5-19-20',
   tell:'090 2259 2811',
   pageType:'website',
   image:'https://picsum.photos/1800/1803',
-  about:'当サイト（https://neko-vn.jp）は、株式会社NekoVn が管理し、情報を提供しているウェブサイトです。当サイトを利用される前に以下の注意点をお読みいただき、ご了解いただいた上でご利用ください。利用者は、自らの判断と責任において、広告等を契機とした広告主などの第三者と連絡、交渉ないし取引その他の接触（以下「接触等」といいます。）をすることができます。当社は、利用者と第三者との間における接触等について、一切の関与をせず、かつ、責任を負いません。',
+  about:'Điều khoản Sử dụng quy định các điều khoản ràng buộc bạn khi sử dụng các Dịch vụ. Thuật ngữ “Bạn” và/hoặc “Người sử dụng” sau đây được gọi chung để chỉ tới những người sử dụng các Dịch vụ. Vui lòng nghiên cứu kỹ và lưu lại một bản Điều khoản Sử dụng này.\n' +
+    '\n' +
+    'Bằng việc ghé thăm website neko-vn.jp và sử dụng các Dịch vụ, Bạn đồng ý bị ràng buộc với Điều khoản Sử dụng này, Chính sách Quảng cáo và Chính sách Bảo mật của chúng tôi.\n' +
+    '\n' +
+    'Chúng tôi thực hiện Điều khoản Sử dụng này, Chính sách Quảng cáo và Chính sách bảo mật theo quy định của pháp luật hiện hành và không nội dung nào trong các tài liệu trên cản trở quyền của chúng tôi tuân thủ các quy định hoặc yêu cầu của chính phủ, tòa án, cơ quan thi hành án liên quan đến việc Bạn sử dụng các Dịch vụ hoặc thông tin do chúng tôi nhận được hoặc thu được từ việc sử dụng các Dịch vụ của Bạn.',
   author_main:'PHAM LE NGOC CUONG',
   featureImage: '/uploads/home-hero.jpg',
   userEmpty:'更新中',
-  noPost:'現在、投稿はありません',
-  contentSample:'ベトナムと日本の旅行や料理や最新情報を写真、画像でまとめてお届けします。ベトナム女性を気になっている人 ！ベトナム女性の性格と恋愛事情を紹介します。日本とベトナムとの相互交流、観光、文化などの交流が拡大され、信頼の関係を発展しています。',
+  noPost:'Hiện tại,không có bài viết',
+  contentSample:'www.neko-vn.jp là kênh văn hóa và cũng là cầu nối giữa văn hóa Việt - Nhật, thường xuyên cập nhật thông tin bổ ích về ẩm thực, văn hóa, du lịch nhật bản và tiếng nhật.',
   author:'admin',
   number:0,
   logo: 'logo-component', // 'logo-component', // or '/logo.svg' for regular image
@@ -32,15 +36,15 @@ export default {
   },
   mainMenu: [
     {
-      name: '免責事項',
+      name: 'Về NekoVn',
       link: '/about'
     },
     {
-      name: 'お問い合わせ',
+      name: 'Liên hệ',
       link: '/contact'
     },
     {
-      name: 'カテゴリー',
+      name: 'Danh mục',
       link: '/categories'
     }
   ],
@@ -72,7 +76,7 @@ export default {
     on: true,
     introduce:'GIỚI THIỆU',
     siteName : 'Khách hàng',
-    successEmail :'メッセージを送信しました。最新の記事をお送りします。',
+    successEmail :'Tin nhắn đã được.Chúng tôi sẽ gửi cho bạn bài viết mới nhất',
     title    : 'Nội dung được gửi từ NekoVn để nhận bài viết mới nhất',
     heading  : '最新の記事を受け取ります',
     btnText  : '送信',

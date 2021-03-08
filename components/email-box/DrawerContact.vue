@@ -2,7 +2,7 @@
   <div>
     <a-divider />
     <p :style="pStyle">
-      連絡
+      Liên lạc
     </p>
     <get-social/>
     <a-divider />
@@ -20,7 +20,7 @@
         }"
     >
       <a-button type="primary" style="marginRight: 8px" @click="handleClose">
-        閉じる
+        Đóng
       </a-button>
     </div>
   </div>

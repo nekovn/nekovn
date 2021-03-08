@@ -24,7 +24,7 @@
           <div class="tile is-parent is-8">
             <article class="tile is-child box">
               <div class="related-post" @click="handleUpdate">
-                <h2 class="related-post__head">{{ getNickName }}の記事</h2>
+                <h2 class="related-post__head">Bài viết của {{ getNickName }}</h2>
                 <div v-if="!articles"><h3>{{ $siteConfig.noPost }}</h3></div>
                 <PostRelatedCard
                   v-for="(item,index) in articles"
@@ -40,7 +40,7 @@
                   @click.prevent="handleLoadMore"
                   html-type="submit"
                   v-bind:loading="isLoading">
-                  もっと読み込む
+                  Xem thêm
                 </a-button>
               </div>
             </article>
@@ -50,7 +50,7 @@
       <template v-slot:sidebar>
         <div @click="handleUpdate">
           <h3 class="subtitle is-4">
-            他の記事
+            Bài viết khác
           </h3>
           <!--           Other Posts -->
           <posts-grid :per-row="1" :number="2"/>
@@ -69,7 +69,7 @@ export default {
   name: "index",
   head() {
     return {
-      title: `ユーザー | ${this.$siteConfig.siteName}`
+      title: `Thông tin | ${this.$siteConfig.siteName}`
     }
   },
   beforeCreate() {
@@ -213,10 +213,10 @@ export default {
       }
     },
     getTitle() {
-      return `プロフィール ${this.getNickName}`
+      return `Thông tin của ${this.getNickName}`
     },
     getSubTitle() {
-      return `${this.getNickName}の記事がおもしろいと思ったらコメントするか共有してください`
+      return `Nếu bạn thấy bài viết của ${this.getNickName} hay thì hãy share và bình luận nó`
     },
   }
 }

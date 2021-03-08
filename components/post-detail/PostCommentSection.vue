@@ -12,7 +12,7 @@
       </nuxt-link>
       <p class="comments__section--time">{{ $dayjs(comment.date).fromNow() }}</p>
       <div class="comments__section--text" v-html="comment.content.rendered"></div>
-      <p v-if="isParent" @click="handleShowReply" class="comments__section--reply-1">回答</p>
+      <p v-if="isParent" @click="handleShowReply" class="comments__section--reply-1">Trả lời</p>
     </a>
   </div>
 </template>

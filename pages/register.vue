@@ -1,7 +1,7 @@
 <template>
   <div id="about-page" class="page-wrapper about-page content-page">
     <site-hero
-      title="登録"
+      title="Đăng ký"
       :subtitle="getSubTitle"
       image="https://picsum.photos/1800/1803"
     ></site-hero>
@@ -9,50 +9,50 @@
       <template v-slot:default>
         <div class="tile is-parent is-10">
           <article class="tile is-child box">
-            <h1 class="form-title text-center">登録</h1>
+            <h1 class="form-title text-center">Đăng ký</h1>
             <div class="form-login-register">
               <form action="">
                 <div class="form-control">
-                  <label for="">ユーザー名</label>
+                  <label for="">Tên đăng nhập</label>
                   <input
                     v-model="username"
                     type="text"
-                    placeholder="ユーザー名を入力してください..."
+                    placeholder="Vui lòng nhập tên đăng nhập..."
                   />
                 </div>
                 <div class="form-control">
-                  <label for="">メールアドレス</label>
+                  <label for="">Email</label>
                   <input
                     v-model="email"
                     type="text"
-                    placeholder="メールアドレスを入力してください...."
+                    placeholder="Vui lòng nhập email...."
                   />
                 </div>
                 <div class="form-control">
-                  <label for="">パスワード</label>
+                  <label for="">Mật khẩu</label>
                   <a-icon type="eye" v-on:click="handleShowPassword" v-if="!isShowPassword"/>
                   <a-icon type="eye-invisible" v-on:click="handleShowPassword" v-else/>
                   <input
                     v-model="password"
                     v-bind:type="typePassword"
-                    placeholder="パスワードを入力してください ..."
+                    placeholder="Vui lòng nhập mật khẩu ..."
                   />
                 </div>
                 <div class="form-control">
-                  <label for="">パスワード（確認）</label>
+                  <label for="">Nhập lại mật khẩu</label>
                   <a-icon type="eye" v-on:click="handleShowPassword" v-if="!isShowPassword"/>
                   <a-icon type="eye-invisible" v-on:click="handleShowPassword" v-else/>
                   <input
                     v-model="confirm_password"
                     v-bind:type="typePassword"
-                    placeholder="パスワード（確認）を入力してください ..."
+                    placeholder="Vui lòng nhập lại mật khẩu..."
                   />
                 </div>
                 <div class="d-flex tcl-jc-between tcl-ais-center" @click="handleUpdate">
                   <a-button type="primary" v-on:click.native="handleSubmit" html-type="submit" v-bind:loading="isLoading">
-                    登録
+                    Đăng ký
                   </a-button>
-                  <nuxt-link class="reset-password" to="/login">すでにアカウントをお持ちですか?</nuxt-link>
+                  <nuxt-link class="reset-password" to="/login">Bạn đã có tài khoảng?</nuxt-link>
                 </div>
               </form>
             </div>
@@ -63,7 +63,7 @@
       <template v-slot:sidebar>
         <div  @click="handleUpdate">
           <h3 class="subtitle is-4">
-            速報・新着
+            Bài viết mới nhất
           </h3>
           <!-- Latest Posts -->
           <posts-grid :per-row="1" :number="2"/>
@@ -102,7 +102,7 @@ export default {
   },
   computed: {
     getSubTitle(){
-      return `アカウントを登録して、${this.$siteConfig.siteName}から詳細情報を受け取ります`
+      return `Đăng ký tài khoảng để cùng nhau khám phá ${this.$siteConfig.siteName}`
     },
     typePassword() {
       if (this.isShowPassword) {
@@ -124,7 +124,7 @@ export default {
       e.preventDefault();
       this.isLoading = true;
       if (this.password !== this.confirm_password) {
-        notication_error(this,'パスワード（確認）が一致しません !');
+        notication_error(this,'Mật khẩu nhập lại không khớp !');
         this.isLoading = false;
         return;
       }
@@ -137,7 +137,7 @@ export default {
         .then(res => {
           if (res.ok) {
             this.isLoading = false;
-            notication_success (this,'アカウント登録が成功しました')
+            notication_success (this,'Đăng ký tài khoảng thành công')
             this.$router.push('/');
           } else {
             _switch(this,res.error)

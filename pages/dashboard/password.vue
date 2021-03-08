@@ -9,7 +9,7 @@
           v-on:submit="handleSubmit"
         >
           <!-- Old Password -->
-          <a-form-item label="以前のパスワード" has-feedback>
+          <a-form-item label="Mật khẩu cũ" has-feedback>
             <a-input-password
               v-decorator="[
                 'password',
@@ -17,7 +17,7 @@
                   rules: [
                     {
                       required: true,
-                      message: '以前のパスワードを入力する必要があります!',
+                      message: 'Vui lòng nhập mật khẩu cũ!',
                     }
                   ],
                 },
@@ -25,7 +25,7 @@
             />
           </a-form-item>
           <!-- New password -->
-          <a-form-item label="新しいパスワード" has-feedback>
+          <a-form-item label="Mật khẩu mới" has-feedback>
             <a-input-password
               v-decorator="[
                 'new_password',
@@ -33,7 +33,7 @@
                   rules: [
                     {
                       required: true,
-                      message: '新しいパスワードを入力する必要があります！',
+                      message: 'Vui lòng nhập mật khẩu mới！',
                     },
                     {
                       validator: validateToConfirmPassword,
@@ -44,7 +44,7 @@
             />
           </a-form-item>
           <!-- Confirm password -->
-          <a-form-item label="新しいパスワード(確認)" has-feedback>
+          <a-form-item label="Xác nhận mật khẩu" has-feedback>
             <a-input-password
               v-decorator="[
                 'confirm_new_password',
@@ -52,7 +52,7 @@
                   rules: [
                     {
                       required: true,
-                      message: '新しいパスワード（確認）を入力する必要があります！',
+                      message: 'Vui lòng nhập lại mật khẩu mới！',
                     },
                     {
                       validator: compareToNewPassword,
@@ -66,7 +66,7 @@
           <!-- Button Submit -->
           <a-form-item v-bind:wrapper-col="{ span: 16, offset: 8 }">
             <a-button type="primary" html-type="submit" v-bind:loading="loading">
-              パスワード変更
+              Thay đổi mật khẩu
             </a-button>
           </a-form-item>
         </a-form>
@@ -88,7 +88,7 @@ export default {
   },
   head() {
     return {
-      title: `パスワード | ${this.$siteConfig.siteName}`
+      title: `Mật khẩu | ${this.$siteConfig.siteName}`
     }
   },
   methods: {
@@ -105,7 +105,7 @@ export default {
               this.loading = false;
               if (res.ok) {
                 // Thanh cong
-                notication_success (this,'パスワードは正常に変更されました')
+                notication_success (this,'Thay đổi mật khẩu thành công')
                 this.form.resetFields(); // reset lại form khi doi password thanh cong
               } else {
                 notication_error(this,res.error);
@@ -126,7 +126,7 @@ export default {
     compareToNewPassword(rule, confirm_new_password, callback) {
       const form = this.form;
       if (confirm_new_password && confirm_new_password !== form.getFieldValue('new_password')) {
-        callback('確認パスワードが一致しません!');
+        callback('Mật khẩu mới nhập lại không đúng!');
       } else {
         callback(); // Không có dòng thông báo lỗi
       }

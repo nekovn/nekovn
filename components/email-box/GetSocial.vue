@@ -23,7 +23,7 @@
     <a-row>
       <a-col :span="24">
         <a-icon type="message"/>
-        メールアドレス: <a :href="`mailto:${getEmail}`" :title="getEmail">{{ getEmail }}</a>
+        Email: <a :href="`mailto:${getEmail}`" :title="getEmail">{{ getEmail }}</a>
       </a-col>
       <a-col :span="24">
         <a-icon type="phone"/>
@@ -31,7 +31,7 @@
       </a-col>
       <a-col :span="24">
         <a-icon type="home"/>
-        住所: <nuxt-link to="#" :title="getAddress">{{ getAddress }}</nuxt-link>
+        Địa chỉ: <nuxt-link to="#" :title="getAddress">{{ getAddress }}</nuxt-link>
       </a-col>
     </a-row>
   </div>

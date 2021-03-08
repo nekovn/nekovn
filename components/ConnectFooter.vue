@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3>公式ソーシャルアカウント</h3>
+    <h3>Liên lạc</h3>
     <get-social/>
     <div style="margin-top: 20px">
       <a href="https://www.gogetssl.com" rel="nofollow" title="GoGetSSL Site Seal Logo">

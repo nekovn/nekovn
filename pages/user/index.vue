@@ -8,7 +8,7 @@ export default {
   name: "index",
   head() {
     return {
-      title: `ユーザー | ${this.$siteConfig.siteName}`
+      title: `Người dùng | ${this.$siteConfig.siteName}`
     }
   },
   watchQuery:true,

@@ -4,8 +4,8 @@
       <a-alert
         v-if="this.dataSource.length >= 1"
 
-        message="警告"
-        description="投稿に問題があります。メールボックスを確認してください"
+        message="Cảnh cáo"
+        description="Bài viết của bạn có lỗi.Vui lòng kiểm tra ở hộp thư"
         type="warning"
         style="margin-bottom: 10px"
         show-icon
@@ -34,10 +34,10 @@
           style="width: 90px; margin-right: 8px"
           @click="() => handleSearch(selectedKeys, confirm, column.dataIndex)"
         >
-          検索
+          Tìm kiếm
         </a-button>
         <a-button size="small" style="width: 90px" @click="() => handleReset(clearFilters)">
-          削除
+          Xóa
         </a-button>
       </div>
       <a-icon
@@ -73,21 +73,21 @@
       <template slot="operation" slot-scope="text, record">
         <a-popconfirm
           v-if="dataSource.length"
-          title="削除してもよろしいですか？"
+          title="Bạn có muốn xóa bài viết？"
           @confirm="() => onDelete(record.key)"
         >
           <a href="javascript:;"><a-icon type="delete" /> | </a>
         </a-popconfirm>
         <a-popconfirm
           v-if="dataSource.length"
-          title="編集してもよろしいですか？"
+          title="Bạn có muốn sửa bài viết？"
           @confirm="() => onEdit(record.key)"
         >
           <a href="javascript:;"><a-icon type="edit" /> | </a>
         </a-popconfirm>
         <a-popconfirm
           v-if="dataSource.length"
-          title="ビューでよろしいですか？"
+          title="Bạn có muốn xem bài viết？"
           @confirm="() => showDrawer(record.key)"
         >
           <a href="javascript:;"><a-icon type="eye" /></a>

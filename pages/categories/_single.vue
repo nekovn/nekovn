@@ -13,7 +13,7 @@
         </template>
         <template v-slot:sidebar>
           <h3 class="subtitle">
-            カテゴリ
+            Danh mục
           </h3>
           <div class="panel">
             <nuxt-link

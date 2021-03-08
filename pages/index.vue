@@ -6,7 +6,7 @@
         class="button is-primary show-button"
         @click="$eventBus.$emit('modal-triggered', 'newsletter-modal')"
       >
-        申し込む
+        Đăng ký
       </button>
     </site-hero>
     <main-section theme="one-column">
@@ -17,7 +17,7 @@
         </div>
       </template>
       <template v-slot:sidebar>
-        ここには何もない
+        Hiện tại không có bài viết
       </template>
     </main-section>
     <news-letter-form-modal />
@@ -33,7 +33,7 @@ export default {
   name: 'HomePage',
   head() {
     return {
-      title: `ホーム | ${this.$siteConfig.siteName}`
+      title: `Trang chủ | ${this.$siteConfig.siteName}`
     }
   },
   fetchOnServer: false,

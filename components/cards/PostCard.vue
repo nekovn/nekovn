@@ -13,10 +13,10 @@
       v-if="author && $siteConfig.posts.displayAuthor"
       class="author-wrapper"
     >
-      <strong>著者:</strong> {{ getAuthor }} |
+      <strong>Tác giả:</strong> {{ getAuthor }} |
     </span>
     <span v-if="date" class="date-wrapper">
-      <strong>投稿日:</strong> {{ datePretty }}
+      <strong>Ngày đăng:</strong> {{ datePretty }}
     </span>
   </generic-card>
 </template>

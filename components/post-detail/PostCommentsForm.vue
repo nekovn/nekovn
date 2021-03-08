@@ -10,7 +10,7 @@
     </div>
     <div class="text-right">
       <a-button type="primary" v-on:click.native="handleSubmitComment" html-type="submit">
-        投稿
+        Đăng bình luận
       </a-button>
     </div>
   </div>
@@ -39,7 +39,7 @@ export default {
   props:{
     placeholder:{
       type:String,
-      default:'コメントしてください ...'
+      default:'nhập bình luận cho bài viết ...'
     }
   },
   methods:{
@@ -50,7 +50,7 @@ export default {
     handleSubmitComment(){
       getLoadIcon(this,1000);
       if(!this.content){
-        notication_error(this, 'コメントを入力してください !');
+        notication_error(this, 'Vui lòng nhập bình luận !');
         return false
       }
       const data = {

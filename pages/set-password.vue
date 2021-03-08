@@ -1,7 +1,7 @@
 <template>
   <div id="about-page" class="page-wrapper about-page content-page">
     <site-hero
-      title="設定パスワード "
+      title="Đặt lại mất khẩu "
       :subtitle="getSubTitle"
       image="https://picsum.photos/1800/1805"
     ></site-hero>
@@ -9,52 +9,52 @@
       <template v-slot:default>
         <div class="tile is-parent is-10">
           <article class="tile is-child box">
-            <h1 class="form-title text-center">新しいパスワードを設定する</h1>
+            <h1 class="form-title text-center">Đặt lại mật khẩu mới </h1>
             <div class="form-login-register">
               <form action="">
                 <div class="form-control">
-                  <label>メールアドレス</label>
+                  <label>Email</label>
                   <input
                     v-model="email"
                     disabled="disabled"
                     type="email"
-                    placeholder="メールアドレスを入力してください ..."
+                    placeholder="Vui lòng nhập email đã đăng ký ..."
                   />
                 </div>
                 <div class="form-control">
-                  <label>新しいパスワード</label>
+                  <label>Mật khẩu mới</label>
                   <a-icon type="eye" v-on:click="handleShowPassword" v-if="!isShowPassword"/>
                   <a-icon type="eye-invisible" v-on:click="handleShowPassword" v-else/>
                   <input
                     v-bind:type="typePassword"
                     v-model="new_password"
-                    placeholder="新しいパスワードを入力してください ..."
+                    placeholder="Vui lòng nhập mật khẩu mới ..."
                   />
                 </div>
                 <div class="form-control">
-                  <label>新しいパスワード（確認）</label>
+                  <label>Xác nhận mật khẩu</label>
                   <a-icon type="eye" v-on:click="handleShowPassword" v-if="!isShowPassword"/>
                   <a-icon type="eye-invisible" v-on:click="handleShowPassword" v-else/>
                   <input
                     v-bind:type="typePassword"
                     v-model="confirm_new_password"
-                    placeholder="新しいパスワード（確認）を入力してください ..."
+                    placeholder="Vui lòng nhập lại mất khẩu mới..."
                   />
                 </div>
                 <div class="form-control">
-                  <label>コード</label>
+                  <label>Mã code</label>
                   <input
                     v-model="code"
                     type="text"
-                    placeholder="コードを入力してください ..."
+                    placeholder="Vui lòng nhập mã code ..."
                   />
                 </div>
 
                 <div class="d-flex tcl-jc-between tcl-ais-center" @click="handleUpdate">
                   <a-button type="primary" v-on:click.native="handleSubmit" html-type="submit" v-bind:loading="isLoading">
-                    送信
+                    Gửi
                   </a-button>
-                  <nuxt-link class="reset-password" to="/reset-password">戻り?</nuxt-link>
+                  <nuxt-link class="reset-password" to="/reset-password">Quay lại?</nuxt-link>
                 </div>
               </form>
             </div>
@@ -65,7 +65,7 @@
       <template v-slot:sidebar>
         <div  @click="handleUpdate">
           <h3 class="subtitle is-4">
-            速報・新着
+            Bài viết mới nhất
           </h3>
           <!-- Latest Posts -->
           <posts-grid :per-row="1" :number="2"/>
@@ -81,7 +81,7 @@ import {_switch_code, notication_error, notication_success,getLoadIcon} from '@/
 export default {
   head() {
     return {
-      title: `設定パスワード  | ${this.$siteConfig.siteName}`
+      title: `Đặt lại mất khẩu  | ${this.$siteConfig.siteName}`
     }
   },
   watchQuery: ['q'],
@@ -137,7 +137,7 @@ export default {
                   .then(res =>{
                     if(res.ok){
                       this.isLoading = false;
-                      notication_success (this,'パスワードが正常に取得されました')
+                      notication_success (this,'Mật khẩu mới đã thay đổi thành công')
                       this.$router.push('/login')
                     }else{
                       _switch_code(this,res.error.message);
@@ -169,7 +169,7 @@ export default {
       return 'password';
     },
     getSubTitle(){
-      return `${this.$siteConfig.siteName} からコードが届きました。自分のメールをご確認ください`
+      return `${this.$siteConfig.siteName} đã gửi cho bạn 1 mã code . Vui lòng kiểm tra email của bạn`
     },
 
   },

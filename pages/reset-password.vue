@@ -1,7 +1,7 @@
 <template>
   <div id="about-page" class="page-wrapper about-page content-page">
     <site-hero
-      title="パスワード再設定"
+      title="Lấy lại mật khẩu"
       :subtitle="getSubTitle"
       image="https://picsum.photos/1800/1804"
     ></site-hero>
@@ -9,22 +9,22 @@
       <template v-slot:default>
         <div class="tile is-parent is-10">
           <article class="tile is-child box">
-            <h1 class="form-title text-center">パスワード再設定</h1>
+            <h1 class="form-title text-center">Lấy lại mật khẩu</h1>
             <div class="form-login-register">
               <form action="">
                 <div class="form-control">
-                  <label>メールアドレス</label>
+                  <label>Email</label>
                   <input
                     v-model="email"
                     type="text"
-                    placeholder="メールアドレスを入力してください ..."
+                    placeholder="Vui lòng nhập tài khoảng email đã đăng ký ..."
                   />
                 </div>
                 <div class="d-flex tcl-jc-between tcl-ais-center" @click="handleUpdate">
                   <a-button type="primary" v-on:click.native="handleSubmit" html-type="submit" v-bind:loading="isLoading">
-                    送信
+                    Gửi
                   </a-button>
-                  <nuxt-link class="reset-password" to="/login">ログイン</nuxt-link>
+                  <nuxt-link class="reset-password" to="/login">Đăng nhập</nuxt-link>
                 </div>
               </form>
             </div>
@@ -35,7 +35,7 @@
       <template v-slot:sidebar>
         <div  @click="handleUpdate">
           <h3 class="subtitle is-4">
-            速報・新着
+            Bài viết mới nhất
           </h3>
           <!-- Latest Posts -->
           <posts-grid :per-row="1" :number="2"/>
@@ -52,7 +52,7 @@ import {notication_error,getLoadIcon} from '@/helpers/notication';
 export default {
   head() {
     return {
-      title: `再設定パスワード | ${this.$siteConfig.siteName}`
+      title: `Lấy lại mật khẩu | ${this.$siteConfig.siteName}`
     }
   },
   beforeCreate() {
@@ -72,7 +72,7 @@ export default {
   },
   computed: {
     getSubTitle(){
-      return `ユーザーID / パスワードの確認や再設定をしたい個人会員`
+      return `Hãy để chúng tôi giúp bạn lấy lại mất khẩu`
     },
 
   },
@@ -96,8 +96,8 @@ export default {
             if (res.ok) {
               this.isLoading = false;
               this.$notification.success({
-                message: 'メールに1つのコードを送信しました',
-                description: 'コードを受け取っていない場合は、ご連絡ください',
+                message: 'Chúng tôi đã gửi cho bạn 1 mã code đến email của bạn',
+                description: 'Nếu chưa nhận được mã code.Vui lòng liên lạc cho chúng tôi',
               });
               this.$router.push({
                   path: '/set-password',
@@ -107,12 +107,12 @@ export default {
               })
             } else {
               this.email = '';
-              notication_error(this, 'メールが登録されていません。登録したメールを正しく入力してください！');
+              notication_error(this, 'Email của bạn chưa đăng ký.Vui lòng nhập chính xác email bạn đã đăng ký tài khoảng！');
               this.isLoading = false;
             }
           })
       }else{
-        notication_error(this, '登録メールを入力してください！');
+        notication_error(this, 'Vui lòng nhập email đã đăng ký！');
         this.isLoading = false;
       }
     },

@@ -25,10 +25,10 @@
           style="width: 90px; margin-right: 8px"
           @click="() => handleSearch(selectedKeys, confirm, column.dataIndex)"
         >
-          検索
+          Tìm kiếm
         </a-button>
         <a-button size="small" style="width: 90px" @click="() => handleReset(clearFilters)">
-          削除
+          Xóa
         </a-button>
       </div>
       <a-icon
@@ -64,14 +64,14 @@
       <template slot="operation" slot-scope="text, record">
         <a-popconfirm
           v-if="dataSource.length"
-          title="削除してもよろしいですか？"
+          title="Bạn có muốn xóa bài viết ？"
           @confirm="() => onDelete(record.key)"
         >
           <a href="javascript:;"><a-icon type="delete" /> | </a>
         </a-popconfirm>
         <a-popconfirm
           v-if="dataSource.length"
-          title="ビューでよろしいですか？"
+          title="Bạn có muốn xem bài viết ？"
           @confirm="() => showDrawer(record.key)"
         >
           <a href="javascript:;"><a-icon type="eye" /></a>
@@ -97,7 +97,7 @@ export default {
   data() {
     return {
       visible: false,
-      headName:'メールボックス',
+      headName:'Hộp thư',
       title:'',
       content:'',
       searchText: '',
@@ -106,13 +106,13 @@ export default {
       ],
       columns: [
         {
-          title: '番号',
+          title: 'STT',
           dataIndex: 'stt',
           fixed: 'left',
           width: 60,
         },
         {
-          title: 'タイトル',
+          title: 'Tiêu đề',
           dataIndex: 'name',
           fixed: 'left',
           width: 300,
@@ -137,7 +137,7 @@ export default {
           },
         },
         {
-          title: '内容',
+          title: 'Nội dung',
           dataIndex: 'content',
           width: 500,
           sorter: (a, b) => a.content.length - b.content.length,
@@ -161,7 +161,7 @@ export default {
           },
         },
         {
-          title: '日付',
+          title: 'Thời gian',
           dataIndex: 'date',
           width: 150,
           sorter: (a, b) => a.date.length - b.date.length,
@@ -185,7 +185,7 @@ export default {
           },
         },
         {
-          title: '設定',
+          title: 'Tùy chọn',
           dataIndex: 'operation',
           fixed: 'right',
           width: 100,
@@ -207,7 +207,7 @@ export default {
   methods: {
     showDrawer(key) {
       if(this.dataSource){
-        this.headName = 'ビュー';
+        this.headName = 'Xem bài viết';
         this.visible = true;
         this.dataSource.map((obj, index) => {
               if (obj.key === key) {
@@ -219,7 +219,7 @@ export default {
     },
     onClose() {
       this.visible = false;
-      this.headName = 'メールボックス';
+      this.headName = 'Hộp thư';
     },
     handleMailbox() {
       return this.$router.push('/dashboard/mailbox');
@@ -234,7 +234,7 @@ export default {
         .then(res => {
           if (res.ok) {
             // Thanh cong
-            notication_success(this, '投稿が正常に削除されました')
+            notication_success(this, 'Bài viết đã xóa thành công')
             const dataSource = [...this.dataSource];
             this.dataSource = dataSource.filter(item => item.key !== key);
           } else {

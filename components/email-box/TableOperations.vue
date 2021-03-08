@@ -5,10 +5,10 @@
       <a-badge :count="getCountArticle" :number-style="{ backgroundColor: '#52c41a' }"/>
     </a-button>
     <a-button @click="handleAdd">
-      追加
+      Thêm mới
     </a-button>
     <a-button @click="handleSupport" v-if="type=='support'">
-      サポート
+      Trợ giúp
     </a-button>
   </div>
 </template>

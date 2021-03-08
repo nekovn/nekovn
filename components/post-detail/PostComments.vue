@@ -6,9 +6,9 @@
 
   />
     <div v-else  @click="handleUpdate">
-      <p>新しいコメントを投稿するには<nuxt-link to="/login">ログイン</nuxt-link>してください</p>
+      <p>Vui lòng <nuxt-link to="/login">Đăng Nhập</nuxt-link> để bình luận mới</p>
     </div>
-    <p>{{ getComment }} コメント</p>
+    <p>Có {{ getComment }} bình luận</p>
     <ul class="comments">
       <!-- Comment 1 -->
       <PostCommentItem
@@ -26,7 +26,7 @@
         v-on:click.native="handleLoadMore"
         html-type="submit"
         v-bind:loading="isLoading">
-        もっと読み込む
+        Xem thêm
       </a-button>
     </div>
   </div>

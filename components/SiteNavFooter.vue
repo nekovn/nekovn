@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3>はじめての方へ</h3>
+    <h3>Liên kết</h3>
     <link-card/>
   </div>
 </template>

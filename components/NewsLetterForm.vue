@@ -8,7 +8,7 @@
             class="input"
             type="email"
             name="email"
-            placeholder="メールアドレス"
+            placeholder="Email"
           />
           <span class="icon is-small is-left">
             <font-awesome-icon icon="envelope"/>
@@ -17,7 +17,7 @@
         </p>
         <div class="control">
           <a-button type="primary" html-type="submit" v-bind:loading="loading" class="button is-primary">
-            {{ $siteConfig.newsletter.btnText || '申し込む' }}
+            {{ $siteConfig.newsletter.btnText || 'Đăng ký' }}
           </a-button>
         </div>
       </div>
@@ -45,7 +45,7 @@ export default {
       e.preventDefault(); //ngăn chặn trang web bị load lại cho chức năng submit
       if (this.$siteConfig.newsletter.mailchimp.on) {
         if (!this.content) {
-          notication_error(this, 'あなたのメールアドレスを入力してください !');
+          notication_error(this, 'Vui lòng nhập email để nhận bài  viết mới nhất !');
           this.loading = false;
           return true;
         }

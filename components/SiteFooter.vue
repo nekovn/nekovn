@@ -13,7 +13,7 @@
     </a-row>
     <div style="text-align: center;">
       {{ $siteConfig.siteName }} &copy; {{ new Date().getFullYear() }} -
-      Inc. All Rights Reserved. 無断転載禁止
+      Inc. All Rights Reserved.
     </div>
 
   </footer>

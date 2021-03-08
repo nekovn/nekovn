@@ -12,7 +12,7 @@ export default {
   layout: 'admin',
   head() {
     return {
-      title: `投稿 | ${this.$siteConfig.siteName}`
+      title: `Đăng bài | ${this.$siteConfig.siteName}`
     }
   },
   async asyncData({store}) {

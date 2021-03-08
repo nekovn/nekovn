@@ -19,13 +19,13 @@
     <div class="comments__hidden" v-if="comment.comment_reply_count - commentsReplyPaging.commentsReply.length !== 0">
       <a href="#" v-on:click.prevent="handleLoadReplyComments">
         <i class="icons ion-ios-undo"></i>
-        {{ comment.comment_reply_count - commentsReplyPaging.commentsReply.length }}つの回答を見る
+      Xem {{ comment.comment_reply_count - commentsReplyPaging.commentsReply.length }} câu trả lời
       </a>
     </div>
     <PostCommentsForm
       v-if="isShowFormReply"
       v-on:postCommentEvent="handlePostReplyComment"
-      v-bind:placeholder="comment.author_data.nickname+'のコメントに返信する'"
+      v-bind:placeholder="'Trả lời bình luận của '+comment.author_data.nickname"
     />
   </li>
 </template>
@@ -115,7 +115,7 @@ export default {
       })
         .then(res => {
           if (res.ok) {
-            notication_success (this,'コメントしました')
+            notication_success (this,'Bình luận thành công')
             this.commentsExclude.push(res.comment.id);
           } else {
             _switch_comment(this,res.error)

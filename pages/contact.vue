@@ -1,7 +1,7 @@
 <template>
   <div id="contact-page" class="page-wrapper contact-page content-page">
     <site-hero
-      title="お問い合わせ"
+      title="Liên hệ"
       :subtitle="getSubTitle"
       image="/uploads/contact-hero.jpg"
     ></site-hero>
@@ -11,10 +11,10 @@
           <div class="tile is-parent">
             <article class="tile is-child box">
               <p class="title">
-                こんにちは!
+                Xin chào!
               </p>
               <p class="subtitle">
-                どうになっていますか？
+                Bạn đang gặp vần đề？
               </p>
               <figure class="image is-1by1 ">
                 <opti-image
@@ -26,7 +26,7 @@
               <div class="content">
                 <p>
                   <strong>
-                    メールでのお問い合わせ
+                    Xin hệ qua Email
                   </strong>
                 </p>
                 <p v-html="getContent"></p>
@@ -43,7 +43,7 @@
       <template v-slot:sidebar >
         <div  @click="handleUpdate">
           <h3 class="subtitle is-4">
-            速報・新着
+            Bài viết mới nhất
           </h3>
           <!-- Latest Posts -->
           <posts-grid :per-row="1" :number="2"/>
@@ -59,7 +59,7 @@ import {getLoadIcon} from '@/helpers/notication';
 export default {
   head() {
     return {
-      title: `お問い合わせ | ${this.$siteConfig.siteName}`
+      title: `Liên hệ | ${this.$siteConfig.siteName}`
     }
   },
   data(){
@@ -83,9 +83,7 @@ export default {
   },
   computed:{
     getContent(){
-      return `このたびは<code>${this.$siteConfig.siteName}</code>のサイトをご覧いただき、ありがとうございます。
-            　下記フォームに必要事項をご記入いただき『送信』ボタンを押してください。
-              万が一、3日以上経ってもこちらからの返信がない場合には、お手数をおかけ致しますがもう一度ご連絡をいただきますようお願い致します。`
+      return `Bạn chỉ cần điền đầy đủ thông tin cá nhân và vấn đề trao đổi với <code>${this.$siteConfig.siteName}</code> vào form , sau khi nhận được thông tin này chúng tôi sẽ liên hệ với các bạn trong thời gian sớm nhất.このたびは<code>${this.$siteConfig.siteName}</code>`
     },
     responsiveImage() {
       if (this.image.indexOf('/uploads') === 0) {
@@ -94,7 +92,7 @@ export default {
       return { src: this.image, srcSet: '' }
     },
     getSubTitle(){
-      return `お手数ですが必須項目はすべてご記入頂けます様、よろしくお願いいたします`
+      return `Nêu có vần đề gì cần trao đổi hãy liên lạc cho chúng tôi`
     },
 
   }
