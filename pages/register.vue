@@ -52,7 +52,7 @@
                   <a-button type="primary" v-on:click.native="handleSubmit" html-type="submit" v-bind:loading="isLoading">
                     Đăng ký
                   </a-button>
-                  <nuxt-link class="reset-password" to="/login">Bạn đã có tài khoảng?</nuxt-link>
+                  <nuxt-link class="reset-password" to="/login">Bạn đã có tài khoản?</nuxt-link>
                 </div>
               </form>
             </div>
@@ -80,7 +80,7 @@ import {_switch} from '@/helpers/notication';
 export default {
   head() {
     return {
-      title: `登録 | ${this.$siteConfig.siteName}`
+      title: `đăng ký|${this.$siteConfig.siteName}`
     }
   },
   //trùng với tên file middleware/notAuthenticated
@@ -102,7 +102,7 @@ export default {
   },
   computed: {
     getSubTitle(){
-      return `Đăng ký tài khoảng để cùng nhau khám phá ${this.$siteConfig.siteName}`
+      return `Đăng ký tài khoản để cùng nhau khám phá ${this.$siteConfig.siteName}`
     },
     typePassword() {
       if (this.isShowPassword) {
@@ -137,7 +137,7 @@ export default {
         .then(res => {
           if (res.ok) {
             this.isLoading = false;
-            notication_success (this,'Đăng ký tài khoảng thành công')
+            notication_success (this,'Đăng ký tài khoản thành công')
             this.$router.push('/');
           } else {
             _switch(this,res.error)
