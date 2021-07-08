@@ -23,7 +23,7 @@
     <a-row>
       <a-col :span="24">
         <a-icon type="message"/>
-        Email: <a :href="`mailto:${getEmail}`" :title="getEmail">{{ getEmail }}</a>
+        Email: <a style="font-size:10px;" :href="`mailto:${getEmail}`" :title="getEmail">{{ getEmail }}</a>
       </a-col>
       <a-col :span="24">
         <a-icon type="phone"/>
