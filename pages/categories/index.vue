@@ -1,6 +1,6 @@
   <template>
   <div id="categories-page" class="page-wrapper categories-page" >
-    <site-hero :subtitle="getSubTitle" title="投稿カテゴリー" image="https://picsum.photos/1800/1801" />
+    <site-hero :subtitle="getSubTitle" title="Danh mục bài viết" image="https://picsum.photos/1800/1801" />
     <main-section theme="one-column">
       <div @click="handleUpdate">
         <categories-grid :resource="mainMenuItems"/>
