@@ -24,9 +24,9 @@ export default {
     'Chúng tôi thực hiện Điều khoản Sử dụng này, Chính sách Quảng cáo và Chính sách bảo mật theo quy định của pháp luật hiện hành và không nội dung nào trong các tài liệu trên cản trở quyền của chúng tôi tuân thủ các quy định hoặc yêu cầu của chính phủ, tòa án, cơ quan thi hành án liên quan đến việc Bạn sử dụng các Dịch vụ hoặc thông tin do chúng tôi nhận được hoặc thu được từ việc sử dụng các Dịch vụ của Bạn.',
   author_main:'PHAM LE NGOC CUONG',
   featureImage: '/uploads/home-hero.jpg',
-  userEmpty:'更新中',
+  userEmpty:'Updating',
   noPost:'Hiện tại,không có bài viết',
-  contentSample:'www.neko-vn.jp là kênh văn hóa và cũng là cầu nối giữa văn hóa Việt - Nhật, thường xuyên cập nhật thông tin bổ ích về ẩm thực, văn hóa, du lịch nhật bản và tiếng nhật.',
+  contentSample:'https://neko-vn.jp là kênh văn hóa và cũng là cầu nối giữa văn hóa Việt - Nhật, thường xuyên cập nhật thông tin bổ ích về ẩm thực, văn hóa, du lịch nhật bản,từ vựng IT tiếng nhật và chia sẽ ngôn ngữ lập trình.',
   author:'admin',
   number:0,
   logo: 'logo-component', // 'logo-component', // or '/logo.svg' for regular image
@@ -78,8 +78,8 @@ export default {
     siteName : 'Khách hàng',
     successEmail :'Tin nhắn đã được.Chúng tôi sẽ gửi cho bạn bài viết mới nhất',
     title    : 'Nội dung được gửi từ NekoVn để nhận bài viết mới nhất',
-    heading  : '最新の記事を受け取ります',
-    btnText  : '送信',
+    heading  : 'Nhận các bài viết mới nhất',
+    btnText  : 'Gửi',
     // Can be the form action on a mail chimp form, a hubspot form,
     // or any other url you want to post the form data to
     mailchimp: {
