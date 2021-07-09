@@ -17,6 +17,7 @@
                   <input
                     v-model="username"
                     type="text"
+                    name="username"
                     placeholder="Vui lòng nhập tên đăng nhập..."
                   />
                 </div>
@@ -28,6 +29,7 @@
                   <input
                     v-model="password"
                     v-bind:type="typePassword"
+                    name="password"
                     placeholder="Vui lòng nhập mật khẩu ..."
                   />
                 </div>
@@ -120,7 +122,7 @@ export default {
               }
             })
       } else {
-        notication_error(this, 'Vui lòng nhập tài khoảng !');
+        notication_error(this, 'Vui lòng nhập tài khoản!');
         this.isLoading = false;
       }
     },
