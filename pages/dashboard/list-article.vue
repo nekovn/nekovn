@@ -201,7 +201,7 @@ export default {
           },
         },
         {
-          title: 'Comment',
+          title: 'Bình luận',
           dataIndex: 'comment',
           width: 150,
           defaultSortOrder: 'descend',
