@@ -12,6 +12,7 @@
           <a-form-item label="Tên đăng nhập">
             <a-input
               name="user_name"
+              autocomplete="on"
               v-decorator="['user_name', {
                   initialValue: this.getUserName
               }]"
@@ -22,6 +23,7 @@
           <a-form-item label="Email">
             <a-input
               name="email"
+              autocomplete="on"
               v-bind:disabled="true"
               v-decorator="['email', {
                   initialValue: this.getUserEmail
@@ -33,6 +35,7 @@
           <a-form-item label="Biệt dạnh">
             <a-input
               name="nickname"
+              autocomplete="on"
               v-decorator="['nickname', {
                   rules: [
                     { required: true, message: 'Vui lòng nhập biệt danh !' }
@@ -45,6 +48,7 @@
           <a-form-item label="Họ và tên">
             <a-input
               name="fullname"
+              autocomplete="on"
               v-decorator="['fullname', {
                   rules: [
                     { required: true, message: 'Vui lòng nhập họ và tên của bạn !' }
@@ -56,6 +60,7 @@
           <a-form-item label="Giới thiệu">
             <a-textarea
               name="description"
+              autocomplete="on"
               v-decorator="['description', {
                 initialValue: this.getUserDescription
               }]"
@@ -121,6 +126,7 @@
           <!-- Username -->
           <a-form-item label="Tên đăng nhập">
             <a-input
+              autocomplete="on"
               name="user_name"
               v-decorator="['user_name', {
                   initialValue: this.getUserName
@@ -131,6 +137,7 @@
           <!-- Email -->
           <a-form-item label="Email">
             <a-input
+              autocomplete="on"
               name="email"
               v-bind:disabled="true"
               v-decorator="['email', {
@@ -142,6 +149,7 @@
 
           <a-form-item label="Biệt danh">
             <a-input
+              autocomplete="on"
               name="nickname"
               v-decorator="['nickname', {
                   rules: [
@@ -154,6 +162,7 @@
 
           <a-form-item label="Họ và tên">
             <a-input
+              autocomplete="on"
               name="fullname"
               v-decorator="['fullname', {
                   rules: [
@@ -165,6 +174,7 @@
           </a-form-item>
           <a-form-item label="Giới thiệu">
             <a-textarea
+              autocomplete="on"
               name="description"
               v-decorator="['description', {
                 initialValue: this.getUserDescription
