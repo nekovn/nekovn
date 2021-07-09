@@ -11,6 +11,7 @@
           <!-- Old Password -->
           <a-form-item label="Mật khẩu cũ" has-feedback>
             <a-input-password
+              name="password"
               v-decorator="[
                 'password',
                 {
@@ -27,6 +28,7 @@
           <!-- New password -->
           <a-form-item label="Mật khẩu mới" has-feedback>
             <a-input-password
+              name="new_password"
               v-decorator="[
                 'new_password',
                 {
@@ -46,6 +48,7 @@
           <!-- Confirm password -->
           <a-form-item label="Xác nhận mật khẩu" has-feedback>
             <a-input-password
+              name="confirm_new_password"
               v-decorator="[
                 'confirm_new_password',
                 {
