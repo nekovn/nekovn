@@ -323,7 +323,7 @@ export default {
       for (const field in data) {
         form.append(field, data[field]);
       }
-      const resContact = await this.$wpApiContact.post('/contact-forms/59/feedback', form, config);
+      const resContact = await this.$wpApiContact.post('/contact-forms/61/feedback', form, config);
       return {
         ok: true,
         message: resContact.data.message
