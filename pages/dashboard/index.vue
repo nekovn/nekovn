@@ -11,6 +11,7 @@
           <!-- Username -->
           <a-form-item label="Tên đăng nhập">
             <a-input
+              name="user_name"
               v-decorator="['user_name', {
                   initialValue: this.getUserName
               }]"
@@ -20,6 +21,7 @@
           <!-- Email -->
           <a-form-item label="Email">
             <a-input
+              name="email"
               v-bind:disabled="true"
               v-decorator="['email', {
                   initialValue: this.getUserEmail
@@ -30,6 +32,7 @@
 
           <a-form-item label="Biệt dạnh">
             <a-input
+              name="nickname"
               v-decorator="['nickname', {
                   rules: [
                     { required: true, message: 'Vui lòng nhập biệt danh !' }
@@ -41,6 +44,7 @@
 
           <a-form-item label="Họ và tên">
             <a-input
+              name="fullname"
               v-decorator="['fullname', {
                   rules: [
                     { required: true, message: 'Vui lòng nhập họ và tên của bạn !' }
@@ -51,6 +55,7 @@
           </a-form-item>
           <a-form-item label="Giới thiệu">
             <a-textarea
+              name="description"
               v-decorator="['description', {
                 initialValue: this.getUserDescription
               }]"
@@ -61,7 +66,7 @@
           <!-- Button Submit -->
           <a-form-item v-bind:wrapper-col="{ span: 16, offset: 8 }">
             <a-button type="primary" html-type="submit" v-bind:loading="loading">
-              Đăng bài
+              Lưu
             </a-button>
           </a-form-item>
         </a-form>
@@ -116,6 +121,7 @@
           <!-- Username -->
           <a-form-item label="Tên đăng nhập">
             <a-input
+              name="user_name"
               v-decorator="['user_name', {
                   initialValue: this.getUserName
               }]"
@@ -125,6 +131,7 @@
           <!-- Email -->
           <a-form-item label="Email">
             <a-input
+              name="email"
               v-bind:disabled="true"
               v-decorator="['email', {
                   initialValue: this.getUserEmail
@@ -135,6 +142,7 @@
 
           <a-form-item label="Biệt danh">
             <a-input
+              name="nickname"
               v-decorator="['nickname', {
                   rules: [
                     { required: true, message: 'Vui lòng nhập biệt danh của bạn !' }
@@ -146,6 +154,7 @@
 
           <a-form-item label="Họ và tên">
             <a-input
+              name="fullname"
               v-decorator="['fullname', {
                   rules: [
                     { required: true, message: 'Vui lòng nhập họ và tên của bạn !' }
@@ -156,6 +165,7 @@
           </a-form-item>
           <a-form-item label="Giới thiệu">
             <a-textarea
+              name="description"
               v-decorator="['description', {
                 initialValue: this.getUserDescription
               }]"
@@ -166,7 +176,7 @@
           <!-- Button Submit -->
           <a-form-item v-bind:wrapper-col="{ span: 16, offset: 8 }">
             <a-button type="primary" html-type="submit" v-bind:loading="loading">
-              Lưu thông tin
+              Lưu
             </a-button>
           </a-form-item>
         </a-form>
