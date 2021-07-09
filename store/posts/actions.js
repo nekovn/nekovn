@@ -247,7 +247,7 @@ export default {
           user_id: user_id
         }
       })
-      console.log("actFetchUserInf:",response)
+   
       if (response.data.status === 200 && response.data.result.roles) {
         commit('setUserInf', response.data.result);
         return {
