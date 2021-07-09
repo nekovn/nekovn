@@ -26,7 +26,7 @@ export default {
   featureImage: '/uploads/home-hero.jpg',
   userEmpty:'Updating',
   noPost:'Hiện tại,không có bài viết',
-  contentSample:'https://neko-vn.jp là kênh văn hóa và cũng là cầu nối giữa văn hóa Việt - Nhật, thường xuyên cập nhật thông tin bổ ích về ẩm thực, văn hóa, du lịch nhật bản,từ vựng IT tiếng nhật và chia sẽ ngôn ngữ lập trình.',
+  contentSample:'NekoVn là trang văn hóa và cũng là cầu nối giữa văn hóa Việt-Nhật,thường xuyên cập nhật thông tin bổ ích về ẩm thực,văn hóa,du lịch nhật bản,từ vựng IT tiếng nhật và chia sẽ ngôn ngữ lập trình.',
   author:'admin',
   number:0,
   logo: 'logo-component', // 'logo-component', // or '/logo.svg' for regular image
@@ -76,7 +76,7 @@ export default {
     on: true,
     introduce:'GIỚI THIỆU',
     siteName : 'Khách hàng',
-    successEmail :'Tin nhắn đã được.Chúng tôi sẽ gửi cho bạn bài viết mới nhất',
+    successEmail :'Tin nhắn đã được gửi.Chúng tôi sẽ gửi cho bạn bài viết mới nhất',
     title    : 'Nội dung được gửi từ NekoVn để nhận bài viết mới nhất',
     heading  : 'Nhận các bài viết mới nhất',
     btnText  : 'Gửi',
