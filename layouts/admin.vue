@@ -21,7 +21,7 @@
           <a-menu-item @click="handleUpdate">
             <nuxt-link to="/">
               <a-icon type="home" />
-              <span>ホーム</span>
+              <span>Trang chủ</span>
             </nuxt-link>
           </a-menu-item>
           <a-menu-item key="/dashboard" @click="handleUpdate">
