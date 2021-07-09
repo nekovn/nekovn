@@ -133,7 +133,7 @@ export default {
           fixed: 'left'
         },
         {
-          title: 'Tiêu ',
+          title: 'Tiêu đề',
           dataIndex: 'name',
           width: 300,
           fixed: 'left',
@@ -254,7 +254,7 @@ export default {
           },
         },
         {
-          title: 'Cài đặt',
+          title: 'Tuỳ chọn',
           dataIndex: 'operation',
           fixed: 'right',
           width: 100,
