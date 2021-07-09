@@ -1,12 +1,15 @@
 export default {
 
   isLogin(authState) {
+    console.log("isLogin:",authState.currentUser)
     if (authState.currentUser){
       return  true;
     }
     return  false;
   },
   isAdmin(authState) {
+    console.log("isAdmin:",authState.currentUser)
+    console.log("authState.roles:",authState.roles)
     if (authState.currentUser && authState.roles ==='administrator'){
       return  true;
     }
