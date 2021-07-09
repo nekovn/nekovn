@@ -11,6 +11,7 @@
         style="padding: 8px"
       >
         <a-input
+          autocomplete="on"
           name="search"
           v-ant-ref="c => (searchInput = c)"
           :placeholder="`Search ${column.dataIndex}`"
