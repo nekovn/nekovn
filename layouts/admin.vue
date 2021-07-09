@@ -7,8 +7,8 @@
           <a-switch
             style="width: 100%;"
             default-checked
-            checked-children="オン"
-            un-checked-children="オフ"
+            checked-children="Mở"
+            un-checked-children="Tắt"
             @change="changeTheme"
           />
         </div>
