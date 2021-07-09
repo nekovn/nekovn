@@ -15,7 +15,9 @@
                 <div class="form-control">
                   <label for="">Tên đăng nhập</label>
                   <input
+                    autocomplete="on"
                     v-model="username"
+                    name="username"
                     type="text"
                     placeholder="Vui lòng nhập tên đăng nhập..."
                   />
@@ -23,7 +25,9 @@
                 <div class="form-control">
                   <label for="">Email</label>
                   <input
+                    autocomplete="on"
                     v-model="email"
+                    name="email"
                     type="text"
                     placeholder="Vui lòng nhập email...."
                   />
@@ -33,6 +37,8 @@
                   <a-icon type="eye" v-on:click="handleShowPassword" v-if="!isShowPassword"/>
                   <a-icon type="eye-invisible" v-on:click="handleShowPassword" v-else/>
                   <input
+                    autocomplete="on"
+                    name="password"
                     v-model="password"
                     v-bind:type="typePassword"
                     placeholder="Vui lòng nhập mật khẩu ..."
@@ -43,6 +49,8 @@
                   <a-icon type="eye" v-on:click="handleShowPassword" v-if="!isShowPassword"/>
                   <a-icon type="eye-invisible" v-on:click="handleShowPassword" v-else/>
                   <input
+                    autocomplete="on"
+                    name="confirm_password"
                     v-model="confirm_password"
                     v-bind:type="typePassword"
                     placeholder="Vui lòng nhập lại mật khẩu..."
