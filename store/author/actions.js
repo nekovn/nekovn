@@ -48,6 +48,7 @@ export default {
           Authorization: `Bearer ${token}`
         }
       });
+      console.log("response:",response)
       if (response.status === 200 && response.data) {
         commit('setCurrentUser', {
           token,
