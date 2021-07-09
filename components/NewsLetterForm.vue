@@ -45,7 +45,7 @@ export default {
       e.preventDefault(); //ngăn chặn trang web bị load lại cho chức năng submit
       if (this.$siteConfig.newsletter.mailchimp.on) {
         if (!this.content) {
-          notication_error(this, 'Vui lòng nhập email để nhận bài  viết mới nhất !');
+          notication_error(this, 'Vui lòng nhập email để nhận bài  viết mới!');
           this.loading = false;
           return true;
         }
