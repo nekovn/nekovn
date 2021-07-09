@@ -72,7 +72,7 @@
           <!-- Button Submit -->
           <a-form-item v-bind:wrapper-col="{ span: 16, offset: 8 }">
             <a-button type="primary" html-type="submit" v-bind:loading="loading">
-              Thay đổi mật khẩu
+              Thay đổi
             </a-button>
           </a-form-item>
         </a-form>
