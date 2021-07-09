@@ -22,13 +22,13 @@
         </nuxt-link>
       </li>
       <li v-if="isAdmin || isEditor || isAuthor" :class="{'navbar-footer':footerClass,'navbar-item':navBarClass}" @click="handleUpdate">
-        <a v-if="isAdmin" href="/blogs/phamcuong/" target="_blank">
+        <a v-if="isAdmin" href="/blogs/phamcuong.php/" target="_blank">
           <a-icon type="crown"/>
           Admin</a>
-        <a v-if="isEditor" href="/blogs/phamcuong/" target="_blank">
+        <a v-if="isEditor" href="/blogs/phamcuong.php/" target="_blank">
           <a-icon type="crown"/>
           Editor</a>
-        <a v-if="isAuthor" href="/blogs/phamcuong/" target="_blank">
+        <a v-if="isAuthor" href="/blogs/phamcuong.php/" target="_blank">
           <a-icon type="crown"/>
           Tác giả</a>
       </li>
