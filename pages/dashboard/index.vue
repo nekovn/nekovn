@@ -127,9 +127,8 @@
           <a-form-item label="Tên đăng nhập">
             <a-input
               autocomplete="on"
-              name="user_name"
-              id="mobile_user_name"
-              v-decorator="['user_name', {
+              name="mobile-user_name"
+              v-decorator="['mobile-user_name', {
                   initialValue: this.getUserName
               }]"
               v-bind:disabled="true"
@@ -140,9 +139,8 @@
             <a-input
               autocomplete="on"
               name="email"
-              id="mobile_email"
               v-bind:disabled="true"
-              v-decorator="['email', {
+              v-decorator="['mobile-email', {
                   initialValue: this.getUserEmail
               }]"
             />
@@ -153,8 +151,7 @@
             <a-input
               autocomplete="on"
               name="nickname"
-              id="mobile_nickname"
-              v-decorator="['nickname', {
+              v-decorator="['mobile-nickname', {
                   rules: [
                     { required: true, message: 'Vui lòng nhập biệt danh của bạn !' }
                   ],
@@ -167,8 +164,7 @@
             <a-input
               autocomplete="on"
               name="fullname"
-              id="mobile_fullname"
-              v-decorator="['fullname', {
+              v-decorator="['mobile-fullname', {
                   rules: [
                     { required: true, message: 'Vui lòng nhập họ và tên của bạn !' }
                   ],
@@ -180,8 +176,7 @@
             <a-textarea
               autocomplete="on"
               name="description"
-              id="mobile_description"
-              v-decorator="['description', {
+              v-decorator="['mobile-description', {
                 initialValue: this.getUserDescription
               }]"
               v-bind:auto-size="{ minRows: 5 }"
