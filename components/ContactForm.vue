@@ -88,7 +88,7 @@ export default {
             // Thanh cong
             switch (res.message) {
               case "success":
-                notication_success(this, "Tin nhắn của bạn đã được gưi.Chúng tôi sẽ liên lạc cho bạn trong vòng 24h")
+                notication_success(this, "Tin nhắn của bạn đã được gửi.Chúng tôi sẽ liên lạc cho bạn trong vòng 24h")
                 this.fullname='';
                 this.email='';
                 this.title='';
