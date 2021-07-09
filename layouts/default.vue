@@ -58,7 +58,6 @@ export default {
     })
   },
   mounted() {
-  console.log('document.cookie',document.cookie)
     setInterval(() => {
       if (!document.cookie) {
         this.actResetCurrentUser();
