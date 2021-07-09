@@ -134,7 +134,7 @@ export default {
         return {
           height: "400",
           width: "auto",
-          language: 'ja',
+          language: 'vi_VN',
           image_title: true,
           /* enable automatic uploads of images represented by blob or data URIs*/
           automatic_uploads: true,
