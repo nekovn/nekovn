@@ -70,13 +70,14 @@ export default {
         username,
         password
       });
-
+      
       if (response.status === 200 && response.data) {
         //gắn token vào cookie
         //exdays: số ngày cho đến khi cookie hết hạn (2d)
         var d = new Date();
         d.setTime(d.getTime() + (2 * 24 * 60 * 60 * 1000));
         document.cookie = `access_token=${response.data.token};expires=${d.toUTCString()}`;
+        console.log("actLogin.data:",response.data)
         dispatch('actFetchCurrentUser', response.data.token)
         return {
           ok: true
