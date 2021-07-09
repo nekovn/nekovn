@@ -48,7 +48,6 @@ export default {
           Authorization: `Bearer ${token}`
         }
       });
-      console.log("response:",response)
       if (response.status === 200 && response.data) {
         commit('setCurrentUser', {
           token,
@@ -77,7 +76,6 @@ export default {
         var d = new Date();
         d.setTime(d.getTime() + (2 * 24 * 60 * 60 * 1000));
         document.cookie = `access_token=${response.data.token};expires=${d.toUTCString()}`;
-        console.log("actLogin.data:",response.data)
         dispatch('actFetchCurrentUser', response.data.token)
         return {
           ok: true
