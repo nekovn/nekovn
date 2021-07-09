@@ -18,6 +18,7 @@
                     v-model="username"
                     type="text"
                     name="username"
+                    autocomplete="on"
                     placeholder="Vui lòng nhập tên đăng nhập..."
                   />
                 </div>
@@ -30,6 +31,7 @@
                     v-model="password"
                     v-bind:type="typePassword"
                     name="password"
+                    autocomplete="on"
                     placeholder="Vui lòng nhập mật khẩu ..."
                   />
                 </div>
