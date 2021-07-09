@@ -77,6 +77,7 @@ export default {
   components: {SiteSearch},
   async fetch({store}, {req}) {
     const token = getTokenFromCookie(req);
+    console.log("token",token)
     await store.dispatch('author/actFetchCurrentUser',token)
   },
   computed: {
