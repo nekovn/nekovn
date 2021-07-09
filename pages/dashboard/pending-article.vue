@@ -119,7 +119,7 @@ export default {
       visible: false,
       title:'',
       display:'',
-      headName:'保守中',
+      headName:'Thư nháp',
       content:'',
       searchText: '',
       dataSource: [
@@ -127,13 +127,13 @@ export default {
       ],
       columns: [
         {
-          title: '番号',
+          title: 'STT',
           dataIndex: 'stt',
           width: 60,
           fixed: 'left'
         },
         {
-          title: 'タイトル',
+          title: 'Tiêu ',
           dataIndex: 'name',
           width: 300,
           fixed: 'left',
@@ -158,7 +158,7 @@ export default {
           },
         },
         {
-          title: '内容',
+          title: 'Nội dung',
           dataIndex: 'content',
           width: 400,
           sorter: (a, b) => a.content.length - b.content.length,
@@ -182,7 +182,7 @@ export default {
           },
         },
         {
-          title: 'カテゴリ',
+          title: 'danh mục',
           dataIndex: 'categories',
           width: 150,
           sorter: (a, b) => a.categories.length - b.categories.length,
@@ -206,7 +206,7 @@ export default {
           },
         },
         {
-          title: 'コメント',
+          title: 'Bình luận',
           dataIndex: 'comment',
           width: 150,
           defaultSortOrder: 'descend',
@@ -230,7 +230,7 @@ export default {
           },
         },
         {
-          title: 'ビュー',
+          title: 'Xem',
           dataIndex: 'view',
           width: 130,
           defaultSortOrder: 'descend',
@@ -254,7 +254,7 @@ export default {
           },
         },
         {
-          title: '設定',
+          title: 'Cài đặt',
           dataIndex: 'operation',
           fixed: 'right',
           width: 100,
@@ -279,7 +279,7 @@ export default {
       if(this.dataSource){
         this.visible = true;
         this.display = 'view';
-        this.headName = 'ビュー';
+        this.headName = 'Xem';
         this.dataSource.map((obj, index) => {
           if (obj.key === key) {
             this.title   = obj.name
@@ -290,7 +290,7 @@ export default {
     },
     onClose() {
       this.visible = false;
-      this.headName = '保守中';
+      this.headName = 'Thư nháp';
     },
     handlePending() {
       return this.$router.push('/dashboard/pending-article');
@@ -308,7 +308,7 @@ export default {
         .then(res => {
           if (res.ok) {
             // Thanh cong
-            notication_success(this, '投稿が正常に削除されました')
+            notication_success(this, 'Đã xóa bài đăng thành công')
             const dataSource = [...this.dataSource];
             this.dataSource = dataSource.filter(item => item.key !== key);
           } else {
@@ -320,7 +320,7 @@ export default {
       if(this.dataSource){
         this.visible  = true;
         this.display  = 'edit';
-        this.headName = '編集';
+        this.headName = 'Sửa';
         this.dataSource.map((obj, index) => {
           if (obj.key === key) {
             this.title      = obj.name
@@ -351,9 +351,9 @@ export default {
           return {
             ['stt']: index + 1,
             ['key']: obj.id,
-            ['comment']: obj.comment_count + ' 回',
+            ['comment']: obj.comment_count + ' lần',
             ['name']: obj.title.rendered,
-            ['view']: obj.view_count+ ' 回',
+            ['view']: obj.view_count+ ' lần',
             ['categories']: obj.categories,
             ['content']   : subContent,
             ['image']     : obj.featured_media_url,
