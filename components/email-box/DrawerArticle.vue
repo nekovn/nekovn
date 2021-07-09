@@ -30,7 +30,7 @@
         >
           <a-form-item>
             <a-input
-              placeholder="タイトル"
+              placeholder="Tiêu đề"
               v-decorator="['title', {
                   rules: [
                     { required: true, message: 'Vui lòng nhập tiêu đề bài viết !' },
@@ -54,7 +54,7 @@
           'select',
           { rules: [{ required: true, message: 'Vui lòng chọn danh mục bài viết !' }] },
         ]"
-              placeholder="カテゴリ"
+              placeholder="Danh mục"
             >
               <template v-for="(item,index) in categoriesList">
                 <a-select-option  :value="item.id" :key="index">
