@@ -1,6 +1,6 @@
 <template>
   <div class="logo-wrapper">
-      <img src="/logo-frames/neko-vn.png"/>
+      <img src="/neko-vn.png"/>
     </div>
   </div>
 </template>
