@@ -39,7 +39,7 @@ export default {
           content: this.$store.state.featureImage
             ? this.$store.state.featureImage
             : (process.env.URL ? process.env.URL : '') +
-            require(`~/assets${this.$siteConfig.featureImage}`)
+            require(`~/assets${this.$siteConfig.featureLogo}`)
         },
         {name: 'twitter:card', content: 'summary'},
         {name: 'twitter:site', content: '@Twitter'}
