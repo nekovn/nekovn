@@ -1,8 +1,6 @@
 <template>
   <div class="logo-wrapper">
-      <img
-        :src="`/logo-frames/neko-vn.png`"
-      />
+      <img src="/logo-frames/neko-vn.png"/>
     </div>
   </div>
 </template>
@@ -30,12 +28,11 @@ export default {
     transform: translateY(-360px);
   }
 }
-.logo-wrapper img{
+.logo-wrapper img {
     display: block;
     height: 128px;
     width:auto;
     margin: 5px;
-  }
 }
 @media screen and (max-width: 575px) {
   .logo-wrapper {
