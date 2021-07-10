@@ -1,7 +1,7 @@
 <template>
   <div>
-    <a-row class="style-md" v-bind:gutter="30">
-      <a-col>
+    <a-row v-bind:gutter="30">
+      <a-col v-bind:md="16>
         <a-form
           v-bind:form="form"
           v-bind:label-col="{ span: 8 }"
