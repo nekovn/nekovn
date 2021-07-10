@@ -1,6 +1,13 @@
 <template>
   <div class="logo-wrapper">
-      <img src="/logo-frames/neko-vn.png" alt="logo" />
+    <div
+      :class="{
+        'logo-inner': true,
+        blink: blinking
+      }"
+    >
+      <img src="/logo-frames/neko-logo.png"
+      />
     </div>
   </div>
 </template>
@@ -28,9 +35,24 @@ export default {
     transform: translateY(-360px);
   }
 }
-.logo-wrapper img {
-    display: block;
-    margin: 5px;
+.logo-wrapper {
+  position: relative;
+  height: 50px;
+  overflow: hidden;
+  width: 200px;
+  .logo-inner {
+    position: absolute;
+    height: 500px;
+    img {
+      display: block;
+      height: 40px;
+      margin: 5px;
+      max-height: initial;
+    }
+    &.blink {
+      animation: logoBlink 0.2s steps(8, end) alternate;
+    }
+  }
 }
 @media screen and (max-width: 575px) {
   .logo-wrapper {
