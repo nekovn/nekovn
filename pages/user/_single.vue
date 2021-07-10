@@ -147,6 +147,7 @@ export default {
       }
     },
     getDateRegistered() {
+    console.log("this.userInf.user_registered",this.userInf.user_registered)
       if (this.userInf && this.userInf.user_registered) {
         return getFormattedDate(this.userInf.user_registered);
       } else {
