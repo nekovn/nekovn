@@ -36,14 +36,16 @@ export default {
 }
 .logo-wrapper {
   position: relative;
-  height: 200px;
   overflow: hidden;
-  width: 200px;
   .logo-inner {
     position: absolute;
+    height: 500px;
     img {
       display: block;
+      height: 128px;
+      width:auto;
       margin: 5px;
+      max-height: initial;
     }
   }
 }
