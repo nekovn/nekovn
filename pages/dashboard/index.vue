@@ -9,8 +9,10 @@
           v-on:submit="handleSubmit"
         >
           <!-- Username -->
-          <a-form-item label="Tên đăng nhập">
+          <a-form-item label="Tên đăng nhập">
             <a-input
+              name="user_name"
+              autocomplete="on"
               v-decorator="['user_name', {
                   initialValue: this.getUserName
               }]"
@@ -20,6 +22,8 @@
           <!-- Email -->
           <a-form-item label="Email">
             <a-input
+              name="email"
+              autocomplete="on"
               v-bind:disabled="true"
               v-decorator="['email', {
                   initialValue: this.getUserEmail
@@ -28,39 +32,35 @@
           </a-form-item>
 
 
-          <a-form-item label="Biệt danh">
+          <a-form-item label="Biệt dạnh">
             <a-input
+              name="nickname"
+              autocomplete="on"
               v-decorator="['nickname', {
                   rules: [
-                    { required: true, message: 'Nickname bắt buộc phải nhập!' }
+                    { required: true, message: 'Vui lòng nhập biệt danh !' }
                   ],
                   initialValue: this.getUserNickName
               }]"
             />
           </a-form-item>
 
-          <a-form-item label="Họ và tên">
+          <a-form-item label="Họ và tên">
             <a-input
+              name="fullname"
+              autocomplete="on"
               v-decorator="['fullname', {
                   rules: [
-                    { required: true, message: 'Họ và tên bắt buộc phải nhập!' }
+                    { required: true, message: 'Vui lòng nhập họ và tên của bạn !' }
                   ],
                   initialValue: this.fullname
               }]"
             />
           </a-form-item>
-          <!-- Facebook -->
-          <a-form-item label="Facebook">
-            <a-input
-              addon-before="https://www.facebook.com/"
-              placeholder="John"
-              v-decorator="['url', {
-                  initialValue: this.getFacebookLink
-              }]"
-            />
-          </a-form-item>
-          <a-form-item label="Giới thiệu bản thân">
+          <a-form-item label="Giới thiệu">
             <a-textarea
+              name="description"
+              autocomplete="on"
               v-decorator="['description', {
                 initialValue: this.getUserDescription
               }]"
@@ -71,13 +71,13 @@
           <!-- Button Submit -->
           <a-form-item v-bind:wrapper-col="{ span: 16, offset: 8 }">
             <a-button type="primary" html-type="submit" v-bind:loading="loading">
-              Lưu thông tin
+              Lưu
             </a-button>
           </a-form-item>
         </a-form>
       </a-col>
       <a-col v-bind:md="8">
-        <p>Tải lên ảnh đại diện</p>
+        <p>Tải ảnh đại diện</p>
         <a-upload
           name="avatar"
           list-type="picture-card"
@@ -90,13 +90,13 @@
           <div v-else>
             <a-icon :type="loading ? 'loading' : 'plus'"/>
             <div class="ant-upload-text">
-              Upload
+              Tải lên
             </div>
           </div>
         </a-upload>
       </a-col>
     </a-row>
-    <a-row class="style-sm" v-bind:gutter="30">
+   <a-row class="style-sm" v-bind:gutter="30">
       <a-col v-bind:sm="12" v-bind:md="8">
         <p>Tải lên ảnh đại diện</p>
         <a-upload
@@ -218,9 +218,9 @@ export default {
     }
   },
   computed: {
-  ...mapState({
-    currentUser: state => state.author.currentUser
-  }),
+    ...mapState({
+      currentUser: state => state.author.currentUser
+    }),
 
     getUserEmail(){
       if (this.currentUser && this.currentUser.email){
@@ -248,13 +248,6 @@ export default {
         return this.currentUser.nickname;
       }else{
         return this.$siteConfig.userEmpty
-      }
-    },
-    getFacebookLink(){
-      if (this.currentUser && this.currentUser.url){
-        return this.currentUser.url.split('.com/')[1];
-      }else{
-        return ''
       }
     },
     fullname() {
@@ -295,16 +288,12 @@ export default {
       this.form.validateFields((err, values) => {
         if (!err) {
           const { first_name, last_name } = this.splitFullName(values.fullname);
-          const url_facebook              = values.url.toLowerCase()
-                                            .replace(/#|,|\?|\/|\+|%|#|"|&|\)|\(|~|>|\|\*|!|\+|`|\||\[|\]|:/g, '')
-                                            .trim()
           const data = {
             file: this.fileUpload.file,
             first_name,
             last_name,
             nickname: values.nickname,
             description: values.description,
-            url:`https://www.facebook.com/${url_facebook}`
           }
           this.loading = true
           this.actUpdateProfile(data)
@@ -314,7 +303,7 @@ export default {
                   file: null,
                   base64: ''
                 }
-                notication_success (this,'Cập nhập thông tin người dùng thành công')
+                notication_success (this,'Đã thay đổi thông tin thành công')
                 this.loading = false;
               } else {
                 notication_error(this,res.error);
@@ -329,12 +318,12 @@ export default {
       const isJpgOrPng = file.type === 'image/jpeg' || file.type === 'image/png';
       if (!isJpgOrPng) {
         // this.$message.error('You can only upload JPG file!');
-        notication_error(this,'Định dạng hình ảnh không hợp lệ');
+        notication_error(this,'Định dạng ảnh không đúng.Vui lòng tải file (jpg,png)');
         return false;
       }
       const isLt2M = file.size / 1024 / 1024 < 2;
       if (!isLt2M) {
-        notication_error(this,'Dung lượng hình ảnh phải nhỏ hơn 2MB');
+        notication_error(this,'Kích thước file phải nhỏ hơn 2MB');
         return false;
       }
       return true;
