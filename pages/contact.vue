@@ -83,7 +83,7 @@ export default {
   },
   computed:{
     getContent(){
-      return `Bạn chỉ cần điền đầy đủ thông tin cá nhân và vấn đề trao đổi với <code>${this.$siteConfig.siteName}</code> vào form , sau khi nhận được thông tin này chúng tôi sẽ liên hệ với các bạn trong thời gian sớm nhất.このたびは<code>${this.$siteConfig.siteName}</code>`
+      return `Bạn chỉ cần điền đầy đủ thông tin cá nhân và vấn đề trao đổi với <code>${this.$siteConfig.siteName}</code> vào form , sau khi nhận được thông tin này chúng tôi sẽ liên hệ với các bạn trong thời gian sớm nhất.`
     },
     responsiveImage() {
       if (this.image.indexOf('/uploads') === 0) {
