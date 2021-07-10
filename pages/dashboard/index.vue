@@ -311,9 +311,9 @@ export default {
         notication_error(this,'Định dạng ảnh không đúng.Vui lòng tải file (jpg,png)');
         return false;
       }
-      const isLt2M = file.size / 1024 / 1024 < 2;
-      if (!isLt2M) {
-        notication_error(this,'Kích thước file phải nhỏ hơn 2MB');
+      const isLt3M = file.size / 1024 / 1024 < 3;
+      if (!isLt3M) {
+        notication_error(this,'Kích thước file phải nhỏ hơn 3MB');
         return false;
       }
       return true;
