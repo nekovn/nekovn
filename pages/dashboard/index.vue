@@ -1,7 +1,7 @@
 <template>
   <div>
     <a-row class="style-md" v-bind:gutter="30">
-      <a-col v-bind:md="16">
+      <a-col>
         <a-form
           v-bind:form="form"
           v-bind:label-col="{ span: 8 }"
@@ -96,102 +96,7 @@
         </a-upload>
       </a-col>
     </a-row>
-    <a-row class="style-sm" v-bind:gutter="30">
-      <a-col v-bind:sm="12" v-bind:md="8">
-        <p>Tải ảnh đại diện</p>
-        <a-upload
-          name="avatar"
-          list-type="picture-card"
-          class="cus-avatar-uploader avatar-uploader"
-          v-bind:show-upload-list="false"
-          action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
-          v-bind:customRequest="handleCustomRequest"
-        >
-          <img v-if="getAvatar" v-bind:src="getAvatar" alt="avatar"/>
-          <div v-else>
-            <a-icon :type="loading ? 'loading' : 'plus'"/>
-            <div class="ant-upload-text">
-              Tải lên
-            </div>
-          </div>
-        </a-upload>
-      </a-col>
-      <a-col v-bind:sm="12" v-bind:md="16">
-        <a-form
-          v-bind:form="form"
-          v-bind:label-col="{ span: 8 }"
-          v-bind:wrapper-col="{ span: 16 }"
-          v-on:submit="handleSubmit"
-        >
-          <!-- Username -->
-          <a-form-item label="Tên đăng nhập">
-            <a-input
-              autocomplete="on"
-              name="mobile-user_name"
-              v-decorator="['mobile-user_name', {
-                  initialValue: this.getUserName
-              }]"
-              v-bind:disabled="true"
-            />
-          </a-form-item>
-          <!-- Email -->
-          <a-form-item label="Email">
-            <a-input
-              autocomplete="on"
-              name="email"
-              v-bind:disabled="true"
-              v-decorator="['mobile-email', {
-                  initialValue: this.getUserEmail
-              }]"
-            />
-          </a-form-item>
-
-
-          <a-form-item label="Biệt danh">
-            <a-input
-              autocomplete="on"
-              name="nickname"
-              v-decorator="['mobile-nickname', {
-                  rules: [
-                    { required: true, message: 'Vui lòng nhập biệt danh của bạn !' }
-                  ],
-                  initialValue: this.getUserNickName
-              }]"
-            />
-          </a-form-item>
-
-          <a-form-item label="Họ và tên">
-            <a-input
-              autocomplete="on"
-              name="fullname"
-              v-decorator="['mobile-fullname', {
-                  rules: [
-                    { required: true, message: 'Vui lòng nhập họ và tên của bạn !' }
-                  ],
-                  initialValue: this.fullname
-              }]"
-            />
-          </a-form-item>
-          <a-form-item label="Giới thiệu">
-            <a-textarea
-              autocomplete="on"
-              name="description"
-              v-decorator="['mobile-description', {
-                initialValue: this.getUserDescription
-              }]"
-              v-bind:auto-size="{ minRows: 5 }"
-            />
-          </a-form-item>
-
-          <!-- Button Submit -->
-          <a-form-item v-bind:wrapper-col="{ span: 16, offset: 8 }">
-            <a-button type="primary" html-type="submit" v-bind:loading="loading">
-              Lưu
-            </a-button>
-          </a-form-item>
-        </a-form>
-      </a-col>
-    </a-row>
+   
   </div>
 </template>
 
