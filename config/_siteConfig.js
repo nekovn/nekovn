@@ -24,6 +24,7 @@ export default {
     'Chúng tôi thực hiện Điều khoản Sử dụng này, Chính sách Quảng cáo và Chính sách bảo mật theo quy định của pháp luật hiện hành và không nội dung nào trong các tài liệu trên cản trở quyền của chúng tôi tuân thủ các quy định hoặc yêu cầu của chính phủ, tòa án, cơ quan thi hành án liên quan đến việc Bạn sử dụng các Dịch vụ hoặc thông tin do chúng tôi nhận được hoặc thu được từ việc sử dụng các Dịch vụ của Bạn.',
   author_main:'PHAM LE NGOC CUONG',
   featureImage: '/uploads/home-hero.jpg',
+  featureLogo: '/uploads/neko-logo.png',
   userEmpty:'Updating',
   noPost:'Hiện tại,không có bài viết',
   contentSample:'NekoVn là trang văn hóa và cũng là cầu nối giữa văn hóa Việt-Nhật,thường xuyên cập nhật thông tin bổ ích về ẩm thực,văn hóa,du lịch nhật bản,từ vựng IT tiếng nhật và chia sẽ ngôn ngữ lập trình.',
