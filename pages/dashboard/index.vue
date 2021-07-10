@@ -164,16 +164,6 @@
               }]"
             />
           </a-form-item>
-          <!-- Facebook -->
-          <a-form-item label="Facebook">
-            <a-input
-              addon-before="https://www.facebook.com/"
-              placeholder="John"
-              v-decorator="['url', {
-                  initialValue: this.getFacebookLink
-              }]"
-            />
-          </a-form-item>
           <a-form-item label="Giới thiệu bản thân">
             <a-textarea
               v-decorator="['description', {
