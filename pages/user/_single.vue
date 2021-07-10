@@ -61,7 +61,6 @@
 </template>
 <script>
 import {mapActions, mapState , mapGetters} from 'vuex'
-import {getFormattedDate} from '@/helpers'
 import antDesignVue from '@/plugins/ant-design-vue';
 import {getLoadIcon} from '@/helpers/notication';
 
@@ -147,9 +146,8 @@ export default {
       }
     },
     getDateRegistered() {
-    console.log("this.userInf.user_registered",this.userInf.user_registered)
       if (this.userInf && this.userInf.user_registered) {
-        return getFormattedDate(this.userInf.user_registered);
+        return this.userInf.user_registered
       } else {
         return '2020/12/20';
       }
