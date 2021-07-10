@@ -32,7 +32,7 @@
           </a-form-item>
 
 
-          <a-form-item label="Biệt dạnh">
+          <a-form-item label="Biệt danh">
             <a-input
               name="nickname"
               autocomplete="on"
