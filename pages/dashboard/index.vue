@@ -1,6 +1,6 @@
 <template>
   <div>
-    <a-row v-bind:gutter="30">
+    <a-row  class="style-sm style-md" v-bind:gutter="30">
       <a-col v-bind:md="16>
         <a-form
           v-bind:form="form"
