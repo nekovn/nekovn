@@ -41,12 +41,11 @@ export default {
   width: 200px;
   .logo-inner {
     position: absolute;
-    height: 500px;
     img {
-      display: block;
-      height: 50px;
-      margin: 5px;
-      max-height: initial;
+          display: block;
+          height: 110px;
+          margin-top: -35px;
+          max-height: none;
     }
   }
 }
