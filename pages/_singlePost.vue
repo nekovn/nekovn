@@ -145,7 +145,7 @@ export default {
       if(this.post){
         let view_count    = (this.post.view_count)?this.post.view_count:0
         let comment_count = (this.post.comment_count)?this.post.comment_count:0
-        return `ビュー数 : ${view_count} 回  || コメント数 : ${comment_count} 回`;
+        return `Lượt xem: ${view_count} lần || Bình luận : ${comment_count} lần`;
       }else{
         return this.$siteConfig.contentSample;
       }
