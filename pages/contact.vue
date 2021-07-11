@@ -26,7 +26,7 @@
               <div class="content">
                 <p>
                   <strong>
-                    Xin hệ qua Email
+                    Liên hệ qua Email
                   </strong>
                 </p>
                 <p v-html="getContent"></p>
